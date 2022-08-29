@@ -1,0 +1,88 @@
+
+
+.caro_center{
+    height: 450px;
+    width: 1500px;
+    text-align: center;
+    padding: 0.5%;
+}
+
+.colorun{
+    background: #01234b;
+    width: 100%; 
+    padding: 15px;
+    height: 300px;
+}
+
+.sobrenosotros{
+    color: #c3d7df;
+    font-size: 18;
+}
+
+/*FOOTER*/
+
+.colores{
+    color: #c3d7df;
+}
+.adress{
+    color: aliceblue;
+    text-align: center;
+}
+
+.social li{
+    display: inline;
+    color: #c3d7df;
+}
+
+.social i {
+    font-size: 200%;
+    margin: 1%;
+    color: #c3d7df;
+    text-align: right;
+}
+
+.foot{
+    color: aliceblue;
+    font-size: 18px;
+    text-align: right;
+    list-style: none;
+}
+
+.icon-text-text{
+    text-align: right;
+    width: 80%;
+    color: aliceblue;
+}
+
+.sobren{
+    color: aliceblue;
+    text-align: center;
+}
+
+.color_copy{
+    color: aliceblue;
+}
+
+
+
+.tamañoface{
+    font-size: 50px;
+}
+
+.negro{
+    background: #00152d;
+    height: 65px;
+}
+
+.centralist{
+    text-align: center;
+}
+
+.title{
+    color: white;
+    text-decoration: none;
+}
+
+
+
+

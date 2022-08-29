@@ -1,0 +1,119 @@
+.ubicar{
+    text-align: justify!important; /* alinea al final del parrafo */
+    position: absolute;
+    right: 200px;
+    left: 200px;
+}
+
+.ubicar1{
+    position: absolute;
+    right: 800px;
+    left: 800px;
+}
+
+h1 {
+    font-size: 2.125em;
+    color: rgb(195, 21, 59);
+}
+
+.sobrenosotros{
+    color: #c3d7df;
+    font-size: 18;
+}
+
+.altobody{
+    height: 400px;
+}
+
+
+/* FOOTER*/
+a:hover {
+    color: #652c0350;
+}
+
+.colores{
+    color: #c3d7df;
+}
+.adress{
+    color: aliceblue;
+    text-align: center;
+}
+
+.social li{
+    display: inline;
+    color: #c3d7df;
+}
+
+.social i {
+    font-size: 200%;
+    margin: 1%;
+    color: #c3d7df;
+    text-align: right;
+}
+
+.colorun{
+    background: #01234b;
+    width: 100%; 
+    padding: 15px;
+    height: 300px;
+}
+
+#banner-wrapper{
+    max-width: 1200;
+    margin: 0 auto;
+    padding: 0 0 3% 0;
+}
+
+.icon-text-text{
+    text-align: right;
+    width: 80%;
+
+}
+
+.sobren{
+    color: aliceblue;
+    text-align: center;
+}
+
+.tamañoface{
+    font-size: 50px;
+}
+.negro{
+    background: #00152d;
+    height: 65px;
+}
+
+.centralist{
+    text-align: center;
+}
+
+.title{
+    color: white;
+    text-decoration: none;
+}
+
+/* link de nosotros*/
+.nav-link {
+    display: block;
+    padding: 0.2rem 1rem;
+    box-sizing: border-box;
+}
+
+.activeColor{
+    color: rgba(51, 0, 51, 1);
+    
+}
+
+.colors{
+    color:#01234b;
+}
+
+.negrilla{
+    color: rgba(6, 41, 73, 0.404);
+}
+
+.fuente{
+    color: #000;
+}
+
+
