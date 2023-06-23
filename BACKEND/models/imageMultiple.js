@@ -5,10 +5,6 @@ const ImageMultipleSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    ubicacion: {
-        type: String,
-        require: true
-    },
     imageRutas: {
         type: [String],
         require: true

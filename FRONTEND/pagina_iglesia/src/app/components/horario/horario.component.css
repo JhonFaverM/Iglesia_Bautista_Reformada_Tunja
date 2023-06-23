@@ -1,83 +1,166 @@
-.ubicar{
-    text-align: justify!important; /* alinea al final del parrafo */
-    position: absolute;
-    right: 200px;
-    left: 200px;
+body, .diferenciales {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  animation: backgroundAnimation 30s infinite linear;
 }
 
-.ubicar1{
-    position: absolute;
-    right: 800px;
-    left: 800px;
+@keyframes backgroundAnimation {
+  0%, 15% {
+    background: #f9f9f9;
+    opacity: 1;
+  }
+  30% {
+    background: #d7dddf; 
+    opacity: 1;
+  }
+  45% {
+    background: #e2e0e0; 
+    opacity: 1;
+  }
+  60% {
+    background: #d2d4cd;
+    opacity: 1;
+  }
+  75%, 100% {
+    background: #dfe1e1;
+    opacity: 1;
+  }
 }
 
-h1 {
-    font-size: 2.125em;
-    color: rgb(195, 21, 59);
+
+.diferenciales {
+  padding-top: 3.5rem;
+  margin-top: 80px;
 }
 
-.sobrenosotros{
-    color: #c3d7df;
-    font-size: 18;
+.diferenciales__lista {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
 }
 
-.altobody{
-    height: 400px;
+.item__texto {
+  line-height: 1.2;
+  font-size: 1.6rem;
+}
+
+.img-pastor {
+  height: 35vh;
+}
+
+@media (max-width: 991px) {
+  .img-pastor {
+   width: 90%;
+   margin-right: 20px;
+  }
+  .item__texto {
+    line-height: 1.1;
+    font-size: 1.1rem;
+  }
 }
 
 
-/* FOOTER*/
-a:hover {
-    color: #652c0350;
+
+/* FINALIZA DIFERENCIALES*/
+
+
+/*FOOTER*/
+
+.pie_pagina {
+	padding-top: 80px;
+
+  }
+
+  .rodapePrincipal {
+	background-color: #324C64;
 }
 
-.colores{
-    color: #c3d7df;
-}
-.adress{
-    color: aliceblue;
-    text-align: center;
+.rodapePrincipal-navMap-list {
+	display: flex;/*divide footer por secciones*/
+	flex-flow: column wrap;
+	height: 250px;/*dar altura de cada item*/
 }
 
-.social li{
-    display: inline;
-    color: #c3d7df;
+.rodapePrincipal-navMap-link {
+	text-decoration: none;
+	color: #FFF;
+	margin-top: 10px;
 }
 
-.social i {
-    font-size: 200%;
-    margin: 1%;
-    color: #c3d7df;
-    text-align: right;
+.navmap-list-title {
+	font-weight: 700;
+	font-size: 1.3em;
+	margin: .9em 0;
+	padding-left: .3em;
+	padding-top: .2em;
+	padding-bottom: .2em;
 }
 
-.colorun{
-    background: #01234b;
-    width: 100%; 
-    padding: 15px;
-    height: 300px;
+.navmap-list-title + .rodapePrincipal-navMap-link {
+	margin-top: 0;
 }
 
-#banner-wrapper{
-    max-width: 1200;
-    margin: 0 auto;
-    padding: 0 0 3% 0;
+.navmap-list-title-bancoDeDados { color: #f60808; border-left: 4px solid #f60808; }
+.navmap-list-title-framework { color: #AD85BF; border-left: 4px solid #AD85BF; }
+.navmap-list-title-frontend { color: #5EC6F3; border-left: 4px solid #5EC6F3; }
+.navmap-list-title-backend { color: #25D285; border-left: 4px solid #25D285; }
+
+.subtitulo {
+    color: white;
+    font-size: 1.8rem;
+    padding-top: 1rem;
 }
 
-.icon-text-text{
-    text-align: right;
-    width: 80%;
-
+.addres {
+    color: #25D285;
+    font-size: 1.6rem;
 }
 
-.sobren{
-    color: aliceblue;
-    text-align: center;
+.barrio {
+    color: #AD85BF;
+    font-size: 1.6rem;
 }
 
-.tamañoface{
-    font-size: 50px;
+.telefono {
+    color: #5EC6F3;
+    font-size: 1.6rem;
 }
+
+.dia-adoracion {
+    font-size: 1.4rem;
+    color: #f60808;
+}
+
+.hora-adoracion {
+    font-size: 1.2rem;
+    color: #f60808;
+}
+
+
+/* Responsive */
+@media(max-width: 768px) {
+	.rodapePrincipal-navMap-list {
+		height: auto;
+	}
+    .horario-servicios {
+        height: auto;
+    }
+}
+
+@media (min-width: 769px) {
+    .rodapePrincipal-navMap-list {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+  }
+
+/*mini*/
 .negro{
     background: #00152d;
     height: 65px;
@@ -91,29 +174,4 @@ a:hover {
     color: white;
     text-decoration: none;
 }
-
-/* link de nosotros*/
-.nav-link {
-    display: block;
-    padding: 0.2rem 1rem;
-    box-sizing: border-box;
-}
-
-.activeColor{
-    color: rgba(51, 0, 51, 1);
-    
-}
-
-.colors{
-    color:#01234b;
-}
-
-.negrilla{
-    color: rgba(6, 41, 73, 0.404);
-}
-
-.fuente{
-    color: #000;
-}
-
 

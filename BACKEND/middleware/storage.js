@@ -15,7 +15,7 @@ const diskStorage = multer.diskStorage({  //funcion para guardar la imagen (disk
 });
 
 const fileFilter = (req, file, callback) => {
-    const allowTypes = [ 'image/jpg,', 'image/png', 'image/jpeg',];
+    const allowTypes = [ 'image/jpg,', 'image/png', 'image/jpeg', 'application/pdf',];
     console.log(file.mimetype)
     allowTypes.includes(file.mimetype) ? callback(null, true): callback(null, false);
 }

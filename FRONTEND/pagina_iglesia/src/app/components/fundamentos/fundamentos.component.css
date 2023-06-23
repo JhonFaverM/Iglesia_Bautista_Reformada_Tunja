@@ -1,13 +1,44 @@
+.container{
+    max-width: 60%
+}
+
+.card {/*este es el div que contiene la iamgen y los p*/
+    margin-right: 30px;
+    margin-bottom: 30px;
+    padding: 5px;
+    padding-right: 5px;
+}
+
+.col-md-4 {
+    max-width: 150px; /* ajusta el valor según tus necesidades */
+  }
+
+.imagen {
+    border-radius: 5px;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+  }
+
+.ancho{
+    width: 30px;
+}
 
 .img-paths{
-    width: 400px;
-    height: 300px;
-    
+    width: 250px;
+    height: 200px;
 }
-.centrar{
-    /*text-align: center;*/
-    position: absolute;
-    right: 250px;
+
+.img-path{
+    width: 50px;
+    height: 210px;
+    text-align: right;
+}
+
+.repeat{
+    background-repeat: no-repeat;
 }
 
 .historia{
@@ -30,7 +61,7 @@
     left: 800px;
 }
 
-h1 {
+h2 {
     font-size: 2.125em;
     color: rgb(195, 21, 59);
 }
@@ -150,5 +181,119 @@ a:hover {
     right: 850px;
     left: 150px;
     text-align: justify!important; /* alinea al final del parrafo */      
+}
+
+/*nueva*/
+.tamano{
+    height: 200px;
+    width: 150px;
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+.img-thumbnail {
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 1px
+px
+ solid #dee2e6;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.col-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+.centrar{
+    text-align: center;
+}
+
+.centrado{
+    text-align: center;
+    background-color: #000;
+}
+
+.mycard{
+    width: 250px;
+    width: 150px;
+}
+
+/*prueba*/
+
+.sobre-nosotros {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.img-box {
+    position: relative;
+    overflow: hidden;
+    flex: 1 0 50%; /* Agregamos flex-basis con valor 50% */
+    margin-right: 30px;
+    margin-bottom: 25px;
+    background: black;
+    /*background-repeat: no-repeat;*/
+    padding: 20px;
+}
+
+.img-box p {
+    color: aliceblue;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.sobre_nosotros {
+    background-color: #dce9ef;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }  
+
+.imaginen {
+    display: block;
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    border-radius: 10px;
+}
+
+img.imaginen {
+    height: 240px;
+    width: 100%;
+    /*width: 300px;
+    margin-left: 20px;*/
+}
+
+
+.img-box:hover .imaginen {
+    transform: translateY(-10%);
 }
 

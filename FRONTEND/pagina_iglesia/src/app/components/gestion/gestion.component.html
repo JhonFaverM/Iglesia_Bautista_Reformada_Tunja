@@ -1,7 +1,10 @@
 <br>
-<body>
-    
-      <div class="card-body centrar" style="background: transparent url('../../../assets/img/trigo.jpg') no-repeat center center /cover">
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" >
+    <div class="card h-100">
+      <div class="card-body" style="background: transparent url('../../../assets/img/trigo.jpg') no-repeat center center /cover">
         <h2 class="card-title">Editar Biografía del pastor</h2>
         <form [formGroup]="form" (submit)="createFile()">
           <div>
@@ -17,72 +20,118 @@
           </div>
         </form>
         <p class="card-text"><strong>Al dar clíck en "crear biografia" se creará biografía y se mostrara en link de "Nuestro Pastor"</strong></p>
+      </div>
+      <div class="card-footer">
         <a href="/nuestroPastor" class="card-link color-link"><strong>Ver Historia Creada</strong></a>
       </div>
-      <div class="card centrar1" style="background: transparent url('../../../assets/img/trigo.jpg') no-repeat center center /cover">
-        <div class="card-body">
-          <h2 class="card-title">Cargar Imagenes de la Iglesia</h2>
-          <form [formGroup]="form" (submit)="createFile()">
-            <div>
-                <input formControlName="idAparment" type="text" placeholder="Editar Historia" class="button-height">
-            </div>
-            <br>
-            <div>
-                <input formControlName="images" (change)="onChangeInput($event)" type="file" multiple>
-            </div>
-            <br>
-            <div>
-                <button type="submit">Crear Imagenes</button>
-            </div>
-        </form>
-        <hr>
-          <p class="card-text"><strong>Al dar clíck se creará una imagen y se mostrara en link de "miembros de la Iglesia"</strong></p>
-          <a href="/nuestroPastor" class="card-link color-link"><strong>Ver Imagen Creada</strong></a>
-        </div>
-      </div>        
-</body>
-
-<footer class="colorun">
-  <div  class="banner-wrapper">
-    <div class="icon-text">
-      <div class="icon-text-icon">
-        <H2 class="sobren nav-link">SOBRE NOSOTROS</H2>
-      </div> <div class="large-4 columns">
-        <ul class="cro_footwidget">
-          <li id="text-2" class="widget-container widget_text clear">
-            <div class="cro-sidebar-inner">
-              <div class="textwidget colores adress">
-                <br>
-                <p>
-                  Tunja - Boyacá
-                </p>
-                <p>
-                  Dirección: Carrera 7b #51 - 20. Las Granjas
-                </p>
-                <p>
-                  Teléfono: 311 2089172
-                </p>
-                    <h2>SÍGUENOS</h2>                  
-                  <p href="#skills">
-                    <a href="http://facebook.com/JesusAutorDeVida"  target="_blank" class="tamañoface">
-                      <i class="fa fa-facebook"></i>
-                    </a>
-                  </p>
-              </div>
-            </div>
-          </li>
-        </ul>
+      <div class="card-footer">
+        <a href="/gestionUno" class="card-link color-link"><strong>Gestion Crear libro</strong></a>
       </div>
     </div>
   </div>
-</footer>
-<footer class="negro">
-  <div class="large-6 columns">
-    <br>
-    <div id="site-cnt" class="centralist">
-      <a class="title"> Iglesia Bautista Reformada De Tunja © (2022) </a>
+  <div class="col">
+    <!-- targeta para cargar imagenes de libros-->
+    <!-- 
+      <div class="card h-100">
+      <div class="card-body" style="background: transparent url('../../../assets/img/trigo.jpg') no-repeat center center /cover">
+        <h2 class="card-title">Cargar Libros Recomendados</h2>
+        <form [formGroup]="form" (submit)="createLibro()">
+          <div>
+              <input formControlName="nameBook" type="text" placeholder="Nombre del Libro" class="button-height">
+          </div>
+          <br>
+          <div>
+              <input formControlName="images" (change)="onChangeInput($event)" type="file" multiple>
+          </div>
+          <br>
+          <div>
+              <button type="submit">Cargar Libro</button>
+          </div>
+      </form>
+      </div>
+      <div class="card-footer">
+        <a href="/fundamentos" class="card-link color-link"><strong>Ver Libro Creado</strong></a>
+      </div>
     </div>
+    -->
+    
+    
   </div>
-</footer>
+</div>
+<hr>
+
+  <form [formGroup]="book" >
+    form [formGroup]="form" (submit)="createFile()"
+    <div>
+      <input formControlName="nameBook" type="text" placeholder="ingresar nombre libro" class="button-height">
+    </div>
+    <br>
+    <div>
+      <input formControlName="" (change)="onChangeInput($event)"  type="file" multiple>
+    </div>
+    <br>
+    <div>
+      <button type="submit">Cargar Libro</button>
+  </div>
+  </form>
+  
+  
+
+  <!-- 
+    <div class="card-body " style="background: transparent url('../../../assets/img/trigo.jpg') no-repeat center center /cover">
+                    <h2 class="card-title">Editar Biografía del pastor</h2>
+                    <form [formGroup]="form" (submit)="createFile()">
+                      <div>
+                          <input formControlName="idAparment" type="text" placeholder="Editar Historia" class="button-height">
+                      </div>
+                      <br>
+                      <div>
+                          <input formControlName="images" (change)="onChangeInput($event)" type="file" multiple>
+                      </div>
+                      <br>
+                      <div>
+                          <button type="submit">Crear Biografía</button>
+                      </div>
+                    </form>
+                    <p class="card-text"><strong>Al dar clíck en "crear biografia" se creará biografía y se mostrara en link de "Nuestro Pastor"</strong></p>
+                    <a href="/nuestroPastor" class="card-link color-link"><strong>Ver Historia Creada</strong></a>
+                  </div>
+                  <div class="card mover" style="background: transparent url('../../../assets/img/trigo.jpg') no-repeat center center /cover">
+                    <div class="card-body">
+                      <h2 class="card-title">Cargar Libros Recomendados</h2>
+                      <form [formGroup]="form" (submit)="createPdf()">
+                        <div>
+                            <input formControlName="nameBook" type="text" placeholder="Nombre del Libro" class="button-height">
+                        </div>
+                        <br>
+                        <div>
+                            <input formControlName="images" (change)="onChangeInput($event)" type="file" multiple>
+                        </div>
+                        <br>
+                        <div>
+                            <button type="submit">Cargar Libro</button>
+                        </div>
+                    </form>
+                    <hr>
+                      <p class="card-text"><strong>Libros Recomendados</strong></p>
+                      <a href="/fundamentos" class="card-link color-link"><strong>Ver Libro Creado</strong></a>
+                    </div>
+                  </div>
+                </div>
+  -->
+
+        
+
+
+
+
+
+
+
+      
+
+   
+
+
 
 

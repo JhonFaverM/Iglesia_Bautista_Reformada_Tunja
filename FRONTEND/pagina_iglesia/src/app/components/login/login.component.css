@@ -27,67 +27,98 @@
     flex: 1 1 auto;
 }
 
-/*footer*/
-.foot{
-    color: aliceblue;
-    font-size: 18px;
-    text-align: right;
-    list-style: none;
-}
 /*FOOTER*/
-.colorun{
-    background: #01234b;
-    width: 100%; 
-    padding: 15px;
-    height: 300px;
+
+.pie_pagina {
+	padding-top: 80px;
+
+  }
+
+  .rodapePrincipal {
+	background-color: #324C64;
 }
 
-.colores{
-    color: #c3d7df;
-}
-.adress{
-    color: aliceblue;
-    text-align: center;
-}
-.social li{
-    display: inline;
-    color: #c3d7df;
+.rodapePrincipal-navMap-list {
+	display: flex;/*divide footer por secciones*/
+	flex-flow: column wrap;
+	height: 250px;/*dar altura de cada item*/
 }
 
-.social i {
-    font-size: 200%;
-    margin: 1%;
-    color: #c3d7df;
-    text-align: right;
+.rodapePrincipal-navMap-link {
+	text-decoration: none;
+	color: #FFF;
+	margin-top: 10px;
 }
 
-.foot{
-    color: aliceblue;
-    font-size: 18px;
-    text-align: right;
-    list-style: none;
+.navmap-list-title {
+	font-weight: 700;
+	font-size: 1.3em;
+	margin: .9em 0;
+	padding-left: .3em;
+	padding-top: .2em;
+	padding-bottom: .2em;
 }
 
-.icon-text-text{
-    text-align: right;
-    width: 80%;
-    color: aliceblue;
+.navmap-list-title + .rodapePrincipal-navMap-link {
+	margin-top: 0;
 }
 
-.sobren{
-    color: aliceblue;
-    text-align: center;
+.navmap-list-title-bancoDeDados { color: #f60808; border-left: 4px solid #f60808; }
+.navmap-list-title-framework { color: #AD85BF; border-left: 4px solid #AD85BF; }
+.navmap-list-title-frontend { color: #5EC6F3; border-left: 4px solid #5EC6F3; }
+.navmap-list-title-backend { color: #25D285; border-left: 4px solid #25D285; }
+
+.subtitulo {
+    color: white;
+    font-size: 1.8rem;
+    padding-top: 1rem;
 }
 
-.color_copy{
-    color: aliceblue;
+.addres {
+    color: #25D285;
+    font-size: 1.6rem;
+}
+
+.barrio {
+    color: #AD85BF;
+    font-size: 1.6rem;
+}
+
+.telefono {
+    color: #5EC6F3;
+    font-size: 1.6rem;
+}
+
+.dia-adoracion {
+    font-size: 1.4rem;
+    color: #f60808;
+}
+
+.hora-adoracion {
+    font-size: 1.2rem;
+    color: #f60808;
 }
 
 
-
-.tamañoface{
-    font-size: 50px;
+/* Responsive */
+@media(max-width: 768px) {
+	.rodapePrincipal-navMap-list {
+		height: auto;
+	}
+    .horario-servicios {
+        height: auto;
+    }
 }
+
+@media (min-width: 769px) {
+    .rodapePrincipal-navMap-list {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+  }
+
+/*mini*/
 .negro{
     background: #00152d;
     height: 65px;

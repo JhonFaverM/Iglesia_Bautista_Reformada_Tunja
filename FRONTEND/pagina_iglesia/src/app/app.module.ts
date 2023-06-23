@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FundamentosComponent } from './components/fundamentos/fundamentos.component';
 import { NuestroPastorComponent } from './components/nuestro-pastor/nuestro-pastor.component';
+import { GestionunoComponent } from './components/gestionuno/gestionuno.component';
 
 
 
@@ -28,6 +29,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HorarioComponent } from './components/horario/horario.component';
+import {MatCardModule} from '@angular/material/card';
+
+//material navbar
+import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 
 
@@ -42,7 +49,8 @@ import { HorarioComponent } from './components/horario/horario.component';
     HomeComponent,
     NuestroPastorComponent,
     FundamentosComponent,
-    HorarioComponent
+    HorarioComponent,
+    GestionunoComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +68,11 @@ import { HorarioComponent } from './components/horario/horario.component';
     MatSnackBarModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatCardModule,
+    MatGridListModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

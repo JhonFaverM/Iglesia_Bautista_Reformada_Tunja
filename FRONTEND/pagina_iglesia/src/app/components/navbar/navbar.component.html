@@ -1,49 +1,132 @@
 
-<nav class="navbar navbar-expand-lg navbar-light color-nav nav-1">
-    <div class="container-fluid bg-custom">
-        <a class="navbar-brand bg-custom nav-1" routerLink="/home"  matTooltip="Pagina principal"><strong>Iglesia Bautista Reformada De Tunja</strong></a>
-          <span class="navbar-toggler-icon"></span>
-    </div>
-</nav>
-<!-- Banner
-
 <header>
-    <div class="header-inner"> 
-      <a href="index.html" id="logo">
-     <img class="log" src="../../../assets/img/">
-    </a>
-    <nav>
-      <a>
-        <span class="material-icons">
-          menu
-        </span>
-      </a>
+  <div class="container flexSB">
+    <nav class="flexSB">
+      <div class="logo">
+        <img src="../../../assets/img/logo1.png" alt="Img logo" />
+      </div>    
+      <ul [class.active]="Mobile" class="{{ Mobile ? 'navMenu-list active' : 'flexSB' }}" (click)="setMobile(false)">
+        <li>
+          <a  href="/home">Inicio</a>
+        </li>
+        <li>
+          <a href="/gestion">Gestion</a>
+        </li>
+        <li>
+          <a href="/nosotros">Nosotros</a>
+        </li>
+        <li>
+          <a href="/horario">Contacto</a>
+        </li>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+      </ul>
+      <button class="toggle" (click)="setMobile(!Mobile)">
+        <i *ngIf="Mobile" class="fa fa-times"></i>
+        <i *ngIf="!Mobile" class="fa fa-bars"></i>
+      </button>
     </nav>
+    
   </div>
 </header>
 
 
--->  
 
-<nav class="navbar navbar-expand-lg navbar-light nav-2" style="height: 8%;">
-  <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 point">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active" matTooltip="Pagina Principal"><strong>Inicio</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/nosotros" routerLinkActive="active" matTooltip="Acerca de Nosotros"><strong>Nosotros</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/gestion" routerLinkActive="active" matTooltip="Admind Publicaciones"><strong>Gestion</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active" matTooltip="Ingresar como Administrador"><strong>Login</strong></a>
-        </li>
-      </ul>
+<!-- 
+
+
+  <header >
+    <div class="container-fluid">
+
+      
+
+      <div class="navb-items">
+        <div class="navb-logo">
+          <img src="../../../assets/img/logo.png" alt="logo" />
+        </div>
+        <div class="item">
+          <a href="/home">Home</a>
+        </div>
+        <div class="item">
+          <a href="/gestion">Gestion</a>
+        </div>
+        <div class="item">
+          <a href="/login">Login</a>
+        </div>
+        <div class="item">
+          <a href="/horario">Contacto</a>
+        </div>
+        <div class="item">
+          <a href="/nosotros">Nosotros</a>
+        </div>
+        <div class="item">
+          <a href="/horario">Horario</a>
+        </div>
+      </div>
+
+       Button trigger modal 
+      <div class="mobile-toggler d-lg-none navbar-toggler">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#navbModal">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+      </div>
+
+       Modal 
+      <div class="modal fade" id="navbModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+   
     
-  </div>
-</nav>
+   
+  
+  </header>
+
+
+-->
+
+
+
+
+
+
+<!-- 
+<header class="head container">
+  <img class="head__logo" src="../../../assets/img/logo.png" alt="logo" />
+  <nav class="head__navegacion">
+      <ul class="navega">
+          <li class="head__enlace"><a href="#nosotros">Nosotros</a></li>
+          <li class="head__enlace"><a href="#planes">Planes</a></li>
+          <li class="head__enlace"><a href="#footer">Blog</a></li>
+          <li class="head__enlace"><a href="#destacado">Destacados</a></li>
+          <li class="head__enlace"><a href="#contacto">Ubicación</a></li>
+          <li class="head__enlace"><a href="#contacto">Contacto</a></li>
+          <a href="#"></a>
+      </ul>
+  </nav>
+
+</header>
+
+-->
+
 
 
 

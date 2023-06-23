@@ -1,0 +1,43 @@
+<!--
+    <div class="target_form">
+  <form  [formGroup]="pdf" (submit)="createLibro()">
+    <br>
+    <div>
+      <input formControlName="nameBook">
+    </div>
+    <br>
+
+    <div>
+      <input formControlName="images" (change)="onChangeInput($event)" type="file" multiple>
+  </div>
+
+    <br>
+    <div>
+      <button type="submit">Cargar Libro</button>
+  </div>
+</form>
+</div>
+-->
+
+<section class="contacto">
+    <div class="formulario">
+      <h2>Cargar libro</h2>
+      <form [formGroup]="pdf" (submit)="createLibro()">
+        <div class="grupo-formulario">
+          <label for="nombre">Nombre del libro</label>
+          <input formControlName="nameBook" type="text" id="nombre" name="nombre" placeholder="Nombre del libro" required>
+        </div>
+        <div class="grupo-formulario">
+          <label for="correo">Selecione su portada</label>
+          <input formControlName="images" (change)="onChangeInput($event)" type="file" placeholder="Ingresa imagen de portada" required>
+        </div>
+        <div class="grupo-formulario">
+            <label for="nombre">Nombre del editor</label>
+            <input formControlName="nameBook" type="text" id="nombre" name="nombre" placeholder="Nombre del editor">
+          </div>
+        <div class="grupo-formulario">
+          <input type="submit" value="Cargar libro" class="boton-enviar">
+        </div>
+      </form>
+    </div>
+</section>

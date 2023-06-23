@@ -5,6 +5,11 @@ export interface FileReceive {
 export interface Files {
     _id: string;
     idAparment: string;
-    ubicacion: string;
     imageRutas: string[];
+}
+
+export interface Libros {
+    _id: string;
+    nameBook: string;
+    bookRutas: string[];
 }

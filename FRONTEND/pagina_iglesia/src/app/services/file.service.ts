@@ -26,7 +26,7 @@ export class FileService {
     return this.files$.asObservable()
   }
 
-  postFile(idAparment: string, ubicacion: string, images: FileList){     //metodo para grabar en postman y envbia al backend
+  postFile(idAparment: string, images: FileList){     //metodo para grabar en postman y envbia al backend
     const file = new FormData();      //objeto que nos enlista los artibutos a la base datos
     file.append("idAparment", idAparment,  );      //metodo ´para adjuntar archivos append
     for(let i=0; i<images.length; i++){
@@ -38,16 +38,11 @@ export class FileService {
       const file: Files = {
         _id:response._id,
         idAparment:response.idAparment,
-        ubicacion:response.ubicacion,
         imageRutas:response.imageRutas
       }
       this.imagenes.push(file);
       this.files$.next(this.imagenes);    //actualiza la vista 
     })
-  }
-
-  sendPost(body:FormData):Observable<any>{
-    return this.http.post('http://localhost:2500/api/mispdf/', body)
   }
 
 }

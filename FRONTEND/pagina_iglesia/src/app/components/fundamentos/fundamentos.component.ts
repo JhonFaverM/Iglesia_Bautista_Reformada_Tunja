@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Files } from 'src/app/models/files';
-import { FileService } from 'src/app/services/file.service';
+import { Libros } from 'src/app/models/libros';
+import { LibroService } from 'src/app/services/libro.service';
+
 
 @Component({
   selector: 'app-fundamentos',
@@ -9,45 +10,50 @@ import { FileService } from 'src/app/services/file.service';
 })
 export class FundamentosComponent implements OnInit {
 
-  files: Files[] = []; //llamar interfarces del model
+  allLibros: any;
 
-  constructor(private fileService: FileService) { }
+  libros: Libros[] = []; //llamar interfarces del model
+
+ 
+
+  constructor(private libroService: LibroService) { } //suscripcion al servicio
 
   ngOnInit(): void {
-    this.fileService.getFile();
-    this.fileService.getFilesStream().subscribe((files: Files[])=>{
-      this.files = files;
-      console.log(this.files);
+    this.libroService.getLibro();
+    this.libroService.getLibrosStream().subscribe((libros: Libros[])=>{
+      this.libros = libros;
+      console.log(this.libros);
     });
   }
+  
+  getAllLibros(){
+    this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
+      this.allLibros = libros
+    }) 
+    
+  }
+
+  pagination(){
+    this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
+      this.allLibros = libros;
+      console.log(this.libros)
+      console.log("desde pagination")
+    })
+   
+  }
+  
 
 }
 
 /*
-form!: FormGroup;
-inmueble!: Inmuebles; //models 
-images!: FileList;
+  
+  <div [formGroup]="myGroup">
+    <input formControlName="firstName">
+  </div>
 
-constructor(private inmuebleService: InmuebleService) { }
+  In your class:
 
-//ngOnInit se inicializa las vistas del template o html
-ngOnInit(): void {
-  this.form = new FormGroup({     //inicializar el formulario en cero
-    idAparment: new FormControl(null),  //permite manipular los input
-    ubicacion: new FormControl(null),
-    images: new FormControl(null)
-  })
-}
-
-onChangeInput(event: Event){      //el event trae toda la informacion que contiene el elemento
-  this.images = (event.target as HTMLInputElement).files as FileList     //asi se captura el elememt file, crear variable images
-
-}
-
-//se debe usar un servicio para enviar las images
-createInmueble(){
-  this.inmuebleService.postInmueble(this.form.value.idAparment, this.form.value.ubicacion, this.images);       //asi se accede a los atributos de los formularios
-  this.form.reset();
-}
-
+  this.myGroup = new FormGroup({
+      firstName: new FormControl()
+  });
 */
