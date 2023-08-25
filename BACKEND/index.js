@@ -6,26 +6,31 @@ const db = require("./database/db");
 const imagesRoutes = require("./routes/images");
 const librosRoutes = require("./routes/libros");
 
+const {administradores} = require("./routes/administradores");//desestructurar
+//const { libros } = require("./routes/libros")
+
+
 const pdfsRoutes = require("./routes/pdfs");
 const cors = require("cors");
 
 
-
-
-
-
 app.use(express.json());
 app.use(cors());
+app.use(express.urlencoded({extended:false}));
 
 
-app.use('/images', express.static('./images'))  //muestra file planos
-app.use('/api/images', imagesRoutes)
+//app.use('/libros', libros)
 
-app.use('/libros', express.static('./libros'))
-app.use('/api/libros', librosRoutes)
+app.use('/images', express.static('./images'));  //muestra file planos
+app.use('/api/images', imagesRoutes);
 
-app.use('/pdfs', express.static('./pdfs'))  //static text.txt
-app.use('/api/pdfs', pdfsRoutes)
+app.use('/libros', express.static('./libros'));
+app.use('/api/libros', librosRoutes);
+
+app.use('/pdfs', express.static('./pdfs')); //static text.txt
+app.use('/api/pdfs', pdfsRoutes);
+
+app.use('/administradores', administradores);//la segunda admis es una variable
 
 
 

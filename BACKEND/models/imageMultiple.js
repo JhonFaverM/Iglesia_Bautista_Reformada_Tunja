@@ -11,4 +11,4 @@ const ImageMultipleSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('ImageMultiple', ImageMultipleSchema);
+module.exports = mongoose.model('ImageMultiple', ImageMultipleSchema, "imagemultiples");

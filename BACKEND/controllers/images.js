@@ -1,4 +1,4 @@
-const image = require("../models/image");
+//const image = require("../models/image");
 const imageMultiple = require("../models/imageMultiple");
 
 getImages = async (req, res)=>{

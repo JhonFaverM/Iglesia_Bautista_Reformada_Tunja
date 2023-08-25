@@ -3,12 +3,16 @@ const mongoose = require("mongoose");
 const librosSchema = mongoose.Schema({
     nameBook: {
         type: String,
-        require: true
+        required: true
+    },
+    article: {
+        type: String,
+        required: true
     },
     bookRutas: {
         type: [String],
-        require: true
+        required: true
     }
 });
 
-module.exports = mongoose.model('Libros', librosSchema,);
+module.exports = mongoose.model('Libros', librosSchema, "libros");
