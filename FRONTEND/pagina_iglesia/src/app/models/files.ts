@@ -11,5 +11,6 @@ export interface Files {
 export interface Libros {
     _id: string;
     nameBook: string;
+    article: string;
     bookRutas: string[];
 }

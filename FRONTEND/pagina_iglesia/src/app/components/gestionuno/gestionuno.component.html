@@ -19,25 +19,43 @@
 </div>
 -->
 
-<section class="contacto">
+
+
+  <section class="contacto">
     <div class="formulario">
-      <h2>Cargar libro</h2>
+      <h2>Cargar Articulo</h2>
       <form [formGroup]="pdf" (submit)="createLibro()">
+
         <div class="grupo-formulario">
-          <label for="nombre">Nombre del libro</label>
-          <input formControlName="nameBook" type="text" id="nombre" name="nombre" placeholder="Nombre del libro" required>
+          <label for="nombre">Titulo de Articulo</label>
+          <input formControlName="nameBook" type="text" id="nombre" name="nombre" placeholder="Nombre de articulo" required>
         </div>
+
         <div class="grupo-formulario">
           <label for="correo">Selecione su portada</label>
           <input formControlName="images" (change)="onChangeInput($event)" type="file" placeholder="Ingresa imagen de portada" required>
         </div>
+
         <div class="grupo-formulario">
-            <label for="nombre">Nombre del editor</label>
-            <input formControlName="nameBook" type="text" id="nombre" name="nombre" placeholder="Nombre del editor">
-          </div>
+          <label for="article">Article</label>
+          <textarea formControlName="article" type="text" id="article" name="article" placeholder="Ingresa el artículo" required></textarea>
+        </div>
+
         <div class="grupo-formulario">
           <input type="submit" value="Cargar libro" class="boton-enviar">
+        </div>
+        <div class="card-footer">
+          <a href="/fundamentos" class="card-link color-link"><strong>Ver en fundamentos</strong></a>
+        </div>
+        <div class="card-footer">
+          <a href="/gestion" class="card-link color-link"><strong>ir a gestion</strong></a>
+        </div>
+        <div class="card-footer">
+          <a href="/eliminar-art" class="card-link color-link"><strong>Eliminar articulo</strong></a>
         </div>
       </form>
     </div>
 </section>
+
+
+

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Libros } from 'src/app/models/libros';
 import { LibroService } from 'src/app/services/libro.service';
+import { MatDialog } from '@angular/material/dialog';
+//import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ShowModalComponent } from '../show-modal/show-modal.component';
+
+
 
 
 @Component({
@@ -10,40 +15,112 @@ import { LibroService } from 'src/app/services/libro.service';
 })
 export class FundamentosComponent implements OnInit {
 
-  allLibros: any;
+  //allLibros: any;
 
-  libros: Libros[] = []; //llamar interfarces del model
+  //libros tiene mi arreglo / console.log(this.libros)
+  libros: Libros[] = []; //llamar interfarces del model/
 
- 
+  librosMostrar: any[] = [];
 
-  constructor(private libroService: LibroService) { } //suscripcion al servicio
+  selectedLibro: any;
 
-  ngOnInit(): void {
-    this.libroService.getLibro();
-    this.libroService.getLibrosStream().subscribe((libros: Libros[])=>{
-      this.libros = libros;
-      console.log(this.libros);
+  itemsPerPage: number =20; // Número de elementos por página
+  currentPage: number = 1; // Página actual
+
+  allLibros: any[] = [];
+
+  constructor(
+    private libroService: LibroService,
+    private dialog:MatDialog
+    ) { } //suscripcion al servicio
+
+
+ngOnInit(): void {
+  this.libroService.getLibro();//llama al metodo getLibro del servicio
+  this.currentPage = 1; // Inicializar o comienza a mostrar la primera pegina
+  this.libroService.getLibrosStream().subscribe((libros: Libros[]) => {
+    this.libros = libros.map(libro => ({ ...libro, mostrarCompleto: false }));
+    console.log(this.libros);
+  });
+}
+
+
+get pages(): number[] {
+  return Array.from({ length: Math.ceil(this.libros.length / this.itemsPerPage) }, (_, i) => i + 1);
+}
+
+changePage(page: number): void {
+  this.currentPage = Math.min(Math.max(page, 1), this.pages.length);
+  this.libroService.getLibro(); // Obtener los libros de la página actual
+}
+
+
+  mostrarArticuloCompleto(libro: any) {
+    libro.mostrarCompleto = true;
+    const dialogRef = this.dialog.open(ShowModalComponent, {
+      data: {
+        bookRutas: libro.bookRutas,
+        nameBook: libro.nameBook,
+        article: libro.article,
+      },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      libro.mostrarCompleto = false;
     });
   }
-  
+
+
+}
+
+
+/*
   getAllLibros(){
     this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
       this.allLibros = libros
     }) 
     
   }
+  */
 
-  pagination(){
-    this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
-      this.allLibros = libros;
-      console.log(this.libros)
-      console.log("desde pagination")
-    })
-   
+
+
+
+  //OPCION 2
+/*
+  fetchLibros() {
+    this.libroService.pagination(this.currentPage, this.itemsPerPage).subscribe(
+      (libros: Libros[]) => {
+        console.log('Fetched libros:', libros);
+        this.libros = libros.map(libro => ({ ...libro, mostrarCompleto: false }));
+      },
+      (error) => {
+        console.error('Error fetching libros:', error);
+      }
+    );
   }
+*/
+
+
+  /*
+  getAllLibros(){
+    this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
+      this.allLibros = libros
+    }) 
+    
+  }
+  */
+  /*
+    pagination(){
+      this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
+        this.allLibros = libros;
+        console.log(this.libros)
+        console.log("desde pagination")
+      })
+    
+    }
+    */
   
 
-}
 
 /*
   

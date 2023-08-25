@@ -8,8 +8,6 @@
 }
 
 
-
-
 /*NUESTO PASTOR*/
 .institucional {
     display: flex;
@@ -68,17 +66,18 @@
 }
 
 /*NUESTRA HISTORIA*/
-.institucional section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
 
   .img__historia {
-    border: 2px solid #79cfe4;
     margin: 10px;
-    
-    justify-content: center;
+
+  margin: 10px; /* Espacio entre las imágenes */
+  }
+
+  /* Filas flexibles */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Espacio entre las imágenes en la fila */
   }
 
 
@@ -126,6 +125,7 @@
 }
 
 /*FOOTER*/
+/*
 
 .rodapePrincipal {
 	background-color: #324C64;
@@ -133,9 +133,9 @@
 }
 
 .rodapePrincipal-navMap-list {
-	display: flex;/*divide footer por secciones*/
+	display: flex;
 	flex-flow: column wrap;
-	height: 250px;/*dar altura de cada item*/
+	height: 250px;
 }
 
 .rodapePrincipal-navMap-link {
@@ -193,7 +193,6 @@
 }
 
 
-/* Responsive */
 @media(max-width: 768px) {
 	.rodapePrincipal-navMap-list {
 		height: auto;
@@ -211,9 +210,6 @@
     }
   }
 
-
-  /*mini*/
-
   .negro{
     background: #00152d;
     height: 65px;
@@ -227,7 +223,7 @@
     color: white;
     text-decoration: none;
 }
-
+*/
 
 
 

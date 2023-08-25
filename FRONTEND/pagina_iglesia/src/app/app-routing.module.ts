@@ -8,7 +8,7 @@ import { NuestroPastorComponent } from './components/nuestro-pastor/nuestro-past
 import { FundamentosComponent } from './components/fundamentos/fundamentos.component';
 import { HorarioComponent } from './components/horario/horario.component';
 import { GestionunoComponent } from './components/gestionuno/gestionuno.component';
-
+import { EliminarArtComponent } from './components/eliminar-art/eliminar-art.component';
 
 const routes: Routes = [
   //{path:"", component: HomeComponent},
@@ -20,6 +20,7 @@ const routes: Routes = [
   {path:"login", component: LoginComponent},
   {path:"gestion", component: GestionComponent}, //canActivate:[AuthGuard]
   {path:"gestionUno", component: GestionunoComponent},
+  {path: 'eliminar-art', component: EliminarArtComponent },
   {path:"nosotros", component: NosotrosComponent},
 ];
 

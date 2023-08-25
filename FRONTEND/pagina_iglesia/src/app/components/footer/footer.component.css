@@ -1,0 +1,109 @@
+
+  /*FOOTER*/
+
+.pie_pagina {
+    clear: both;
+}
+
+.rodapePrincipal {
+	background-color: rgb(234, 228, 195);
+    background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+    background-position: center;
+}
+
+.rodapePrincipal-navMap-list {
+	display: flex;/*divide footer por secciones*/
+	flex-flow: column wrap;
+	height: 30vh;/*dar altura de cada item*/
+}
+
+.rodapePrincipal-navMap-link {
+	text-decoration: none;
+	color: #FFF;
+	margin-top: 10px;
+}
+
+.navmap-list-title {
+	font-weight: 700;
+	font-size: 1.3em;
+	margin: .9em 0;
+	padding-left: .3em;
+	padding-top: .2em;
+	padding-bottom: .2em;
+}
+
+.navmap-list-title + .rodapePrincipal-navMap-link {
+	margin-top: 0;
+}
+
+.navmap-list-title-bancoDeDados { color: #f60808; border-left: 4px solid #f60808; }
+.navmap-list-title-framework { color: #AD85BF; border-left: 4px solid #AD85BF; }
+.navmap-list-title-frontend { color: #5EC6F3; border-left: 4px solid #5EC6F3; }
+.direccion { color: #25D285; border-left: 4px solid #25D285; }
+
+.subtitulo {
+  color: rgb(0, 0, 0);
+  font-size: 1.8rem;
+  padding-top: 1rem;
+  filter: brightness(90%);
+
+}
+
+.addres {
+    color: #25D285;
+    font-size: 1.6rem;
+}
+
+.barrio {
+    color: #AD85BF;
+    font-size: 1.6rem;
+}
+
+.telefono {
+    color: #5EC6F3;
+    font-size: 1.6rem;
+}
+
+.dia-adoracion {
+    font-size: 1.4rem;
+    color: #f60808;
+}
+
+.hora-adoracion {
+    font-size: 1.2rem;
+    color: #f60808;
+}
+
+
+/* Responsive */
+@media(max-width: 768px) {
+	.rodapePrincipal-navMap-list {
+		height: auto;
+	}
+    .horario-servicios {
+        height: auto;
+    }
+}
+
+@media (min-width: 769px) {
+    .rodapePrincipal-navMap-list {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+  }
+
+/*mini*/
+.negro{
+    background: #00152d;
+    height: 65px;
+}
+
+.centralist{
+    text-align: center;
+}
+
+.title{
+    color: white;
+    text-decoration: none;
+}

@@ -45,7 +45,7 @@ body, .presentacion-container, .servicios, .liderazgo {
   .carousel-container {
     max-width: 100%; /* ancho máximo deseado para el carrusel */
     margin: 0 auto; /* centrar el carrusel horizontalmente */
-    padding-top: 20px;
+    padding-top: 80px;
   }
 
   .carousel-caption {

@@ -1,140 +1,104 @@
-/* contedendor*/
-.centrado{
+.target_form{
     text-align: center;
 }
 
-.container{
-    width: 900px;
-    height: 1200px;
-}
-
-body {
-    margin: 0;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-    background-color: #fff;
-    position: relative;
-}
-
-
-.centrar{
-    /*text-align: center;*/
-    position: absolute;
-    right: 1100px;
-    height: 350px;
-}
-
-.centrar1{
-    position: absolute;
-    right: 700px;
-    height: 350px;
-}
-
-.button-height{
-    height: 50px;
-    width: 250px;
-}
-
-.color-link{
-    color: rgb(0, 4, 255);
-}
-
-.card-body{
-    width: 350px;
-}
-
-
-
-
-
-.caro_center{
-    height: 450px;
-    width: 1500px;
-    text-align: center;
-    padding: 0.5%;
-}
-
-.colorun{
-    background: #01234b;
-    width: 100%; 
-    padding: 15px;
-    height: 300px;
-}
-
-.sobrenosotros{
-    color: #c3d7df;
-    font-size: 18;
-}
-
-/*FOOTER*/
-
-.colores{
-    color: #c3d7df;
-}
-.adress{
-    color: aliceblue;
+.form{
     text-align: center;
 }
-.social li{
-    display: inline;
-    color: #c3d7df;
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
 }
 
-.social i {
-    font-size: 200%;
-    margin: 1%;
-    color: #c3d7df;
-    text-align: right;
-}
 
-.foot{
-    color: aliceblue;
-    font-size: 18px;
-    text-align: right;
-    list-style: none;
-}
+/*formulario nuevo*/
+.contacto {
+    background-color: #bfd9ed;
+    padding: 50px 0;
+    padding-top: 10%;
+  }
 
-.icon-text-text{
-    text-align: right;
+  
+  
+  .formulario {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 20);
+    border-radius: 10px;
+    padding: 30px;
+  }
+
+  .formulario {
     width: 80%;
-    color: aliceblue;
-}
+  }
+  
+  .formulario h2 {
+    margin-bottom: 30px;
+    font-size: 2.8rem;
+    color: black;
+  }
+  
+  .grupo-formulario {
+    margin-bottom: 20px;
+  }
 
-.sobren{
-    color: aliceblue;
-    text-align: center;
-}
+  
+  
+  .grupo-formulario label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .grupo-formulario input {
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+  }
 
-.color_copy{
-    color: aliceblue;
-}
+  .boton-enviar {
+    width: 40%;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color:rgb(241, 238, 60);
+    background: rgb(179, 65, 220);
+    border:none;
+    border-radius: 5px;
+    transition: 1s all;
+    cursor:pointer;
+  }
+  
+  .boton-enviar:hover {
+    background-color: #1d6d2a;
+    transform: scale(1.1);
+    color:rgb(239, 242, 242);
+  }
 
-
-
-.tamañoface{
-    font-size: 50px;
-}
-.negro{
-    background: #00152d;
-    height: 65px;
-}
-
-.centralist{
-    text-align: center;
-}
-
-.title{
-    color: white;
-    text-decoration: none;
-}
-
-.colorun{
-    background: #01234b;
-    width: 100%; 
-    padding: 15px;
-    height: 300px;
-}
+  @media screen and (max-width: 1024px) {
+    .contacto {
+      padding-top: 30%;
+    }
+    .formulario {
+      width: 60%;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+    }
+    .formulario h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    .grupo-formulario input {
+      padding: 8px;
+      border-radius: 3px;
+      box-sizing: border-box;
+      font-size: 0.8rem;
+    }
+    .boton-enviar {
+      color:rgb(9, 6, 6);
+      background: rgb(220, 231, 61);
+    }
+  }

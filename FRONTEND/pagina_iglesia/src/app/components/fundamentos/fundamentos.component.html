@@ -1,97 +1,94 @@
-<body>
-
 <div class="container mt-5">
-  <div class="card text-center colorin">
+  <div class="text-center">
       <div class="card-body">
-          <h2>LIBRERIA RECOMENDADA</h2>
+          <h2 class="titulo-articulos-recomendados">Artículos Recomendados</h2>
           <hr>
       </div>
   </div>
   
-
   <div class="d-flex flex-wrap justify-content-evenly mt-5">
-    <div class="col-md-6" *ngFor="let libro of libros">
+    <div class="col-md-6" *ngFor="let libro of libros | slice:(currentPage-1)*itemsPerPage:currentPage*itemsPerPage">
       <div class="card mb-3" style="border: none;">
         <div class="row g-0 ">
 
-          <div class="col-md-4 d-flex align-items-center">
+          <div class="col-md-5 d-flex align-items-center">
             <img *ngFor="let images of libro.bookRutas" [src]="images" class="img-fluid imagen align-self-center ms-2">
           </div>
 
           <div class="col-md-8" >
             <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text">{{ libro.nameBook }}</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h2 class="title-nameBook">{{ libro.nameBook }}</h2>
+              <div *ngIf="!libro.mostrarCompleto">
+                <p class="parrafo-article">{{ libro.article.substring(0, 100) }}...</p>
+                <button (click)="mostrarArticuloCompleto(libro)" type="button" class="btn btn-light">Leer más</button>
+              </div>
+              <div class="card-text" *ngIf="libro.mostrarCompleto">
+                {{ libro.article }}
+              </div>
+
             </div>
-          </div>
+          </div>  
         </div>
       </div>
     </div>
   </div>
 
-            <nav aria-label="Page navigation example mt-5" class="mt-5">
-              <ul class="pagination justify-content-center pagination()">
-                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item "><a class="page-link" href="http://ibrsuba.org/articles/2">Siguiente</a></li>
-              </ul>
-            </nav>
+    <!-- Paginación -->
+
+
+
+    <nav>
+      <ul class="pagination justify-content-center">
+        <!-- Botón Anterior -->
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" href="#" (click)="changePage(currentPage - 1)">Anterior</a>
+        </li>
+    
+        <!-- Números de página -->
+        <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+          <a class="page-link" href="#" (click)="changePage(page)">{{ page }}</a>
+        </li>
+    
+        <!-- Botón Siguiente -->
+        <li class="page-item" [class.disabled]="currentPage === pages.length">
+          <a class="page-link" href="#" (click)="changePage(currentPage + 1)">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
+
+<!--  
+
+<nav>
+    <ul class="pagination justify-content-center">
+
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" href="#" (click)="changePage(-1)">Anterior</a>
+      </li>
+
+      <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+        <a class="page-link" href="#" (click)="changePage(page)">{{ page }}</a>
+      </li>
+
+      <li class="page-item" [class.disabled]="currentPage === pages.length">
+        <a class="page-link" href="#" (click)="changePage(1)">Siguiente</a>
+      </li>
+      
+    </ul>
+  </nav>  
+-->
+         
 
 
 
           <a class="btn btn-outline-primary"  matTooltip="Pagina pricipal" class="pointer" routerLink="">Ir al Home</a>
 </div>
 
-
-  
-<footer class="colorun">
-    <div  class="banner-wrapper">
-      <div class="icon-text">
-        <div class="icon-text-icon">
-          <H2 class="sobren">SOBRE NOSOTROS</H2>
-        </div>
-        <div class="large-4 columns">
-          <ul class="cro_footwidget">
-            <li id="text-2" class="widget-container widget_text clear">
-              <div class="cro-sidebar-inner">
-                <div class="textwidget colores adress">
-                  <br>
-                  <p>
-                    Tunja - Boyacá
-                  </p>
-                  <p>
-                    Dirección: Carrera 7b #51 - 20. Las Granjas
-                  </p>
-                  <p>
-                    Teléfono: 311 2089172
-                  </p>
-                      <h2>SÍGUENOS</h2>                  
-                    <p href="#skills">
-                      <a href="http://facebook.com/JesusAutorDeVida"  target="_blank" class="tamañoface">
-                        <i class="fa fa-facebook"></i>
-                      </a>
-                    </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> 
-</footer>
-<footer class="negro">
-  <div class="large-6 columns">
-    <br>
-    <div id="site-cnt" class="centralist">
-      <a class="title"> Iglesia Bautista Reformada De Tunja © (2022) </a>
-    </div>
-  </div>
-</footer>
-
-</body>
 <!-- 
 &nbsp; 
 -->
+
+
+
+
+
+

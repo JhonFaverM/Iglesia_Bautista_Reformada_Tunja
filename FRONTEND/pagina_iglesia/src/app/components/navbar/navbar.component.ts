@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
+import { Component, HostListener, OnInit } from '@angular/core';
+//import { RouterLinkActive } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -10,8 +10,12 @@ import { Router, NavigationEnd } from '@angular/router';
 export class NavbarComponent implements OnInit {
   Mobile: boolean = false;
   location: string = '';
+  gestionUnoDropdownOpen: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    
+    ) { }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
@@ -21,8 +25,16 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  setMobile(value: boolean): void {
-    this.Mobile = value;
+  toggleMobile(): void {
+    this.Mobile = !this.Mobile;
+  }
+
+  toggleGestionUnoDropdown(): void {
+    this.gestionUnoDropdownOpen = !this.gestionUnoDropdownOpen;
+  }
+
+  closeGestionUnoDropdown(): void {
+    this.gestionUnoDropdownOpen = false;
   }
 
 }

@@ -29,11 +29,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HorarioComponent } from './components/horario/horario.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 //material navbar
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { FooterComponent } from './components/footer/footer.component';
+import { ShowModalComponent } from './components/show-modal/show-modal.component';
+import { EliminarArtComponent } from './components/eliminar-art/eliminar-art.component';
 
 
 
@@ -51,6 +55,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
     FundamentosComponent,
     HorarioComponent,
     GestionunoComponent,
+    FooterComponent,
+    ShowModalComponent,
+    EliminarArtComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -72,6 +80,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSelectModule,
     MatCardModule,
     MatGridListModule,
+    MatDialogModule,
+
     
   ],
   providers: [],

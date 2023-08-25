@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Libros } from 'src/app/models/libros';
 import { LibroService } from 'src/app/services/libro.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-gestionuno',
@@ -24,12 +25,16 @@ export class GestionunoComponent implements OnInit {
   pdf!:FormGroup;
   libro!: Libros;
   images!: FileList;
+  articulo!:FormGroup;
   
-  constructor(private libroService: LibroService) {}
+  constructor(
+    private libroService: LibroService,
+    private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.pdf = new FormGroup({     //inicializar el formulario en cero
       nameBook: new FormControl(null),  //permite manipular los input
+      article: new FormControl(null),
       images: new FormControl(null)
     })
   }
@@ -43,7 +48,12 @@ export class GestionunoComponent implements OnInit {
 
   
   createLibro(){
-    this.libroService.postLibro(this.pdf.value.nameBook, this.images);       //asi se accede a los atributos de los formularios
+    this.libroService.postLibro(this.pdf.value.nameBook, this.pdf.value.article, this.images);       //asi se accede a los atributos de los formularios
     this.pdf.reset();
+    this._snackBar.open('Creaste un nuevo Artículo', '', {
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    })
   }
 }
