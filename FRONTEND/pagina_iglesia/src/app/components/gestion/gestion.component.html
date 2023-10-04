@@ -5,27 +5,26 @@
     <form [formGroup]="form" (submit)="createFile()">
 
       <div class="grupo-formulario">
-        <label for="nombre">Nombre su Imagen</label>
-        <input formControlName="idAparment" type="text" placeholder="Editar Historia" class="button-height">
+        <label class="title_campos" for="nombre">Nombre su Imagen</label>
+        <input style="border:1px solid" class="label_title" formControlName="name_foto" type="text" placeholder="Editar Historia">
       </div>
 
       <div class="grupo-formulario">
-        <label for="correo">Selecione su fotografía</label>
+        <label class="title_campos" for="correo">Selecione su fotografía</label>
         <input formControlName="images" (change)="onChangeInput($event)" type="file" placeholder="Ingresa imagen de portada" required multiple>
       </div>
 
       <div class="grupo-formulario">
-        <input type="submit" value="Cargar libro" class="boton-enviar">
+        <input type="submit" value="Cargar historia" class="boton-enviar">
       </div>
+
       <div class="card-footer">
-        <a href="/fundamentos" class="card-link color-link"><strong>Ver en fundamentos</strong></a>
-      </div>
+        <a href="/eliminar-historia" class="boton_eliminar"><strong>Eliminar historia</strong></a>
+      </div> <br> <br>
+
       <div class="card-footer">
-        <a href="/gestion" class="card-link color-link"><strong>ir a gestion</strong></a>
-      </div>
-      <div class="card-footer">
-        <a href="/eliminar-art" class="card-link color-link"><strong>Eliminar articulo</strong></a>
-      </div>
+        <a href="/nosotros" class="ver-articulo-creado"><strong>Ver historia creada</strong></a>
+      </div>  <br> <br>
     </form>
   </div>
 </section>

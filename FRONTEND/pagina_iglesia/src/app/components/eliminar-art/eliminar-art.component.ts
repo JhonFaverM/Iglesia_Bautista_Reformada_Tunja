@@ -40,7 +40,7 @@ export class EliminarArtComponent implements OnInit {
     private libroService: LibroService,
     private dialog:MatDialog,
     private _snackBar: MatSnackBar
-    ) { } //suscripcion al servicio
+  ) { } //suscripcion al servicio
 
   
 /*
@@ -80,7 +80,7 @@ ngOnInit(): void {
     this.libroService.deleteArticulo(libro.nameBook).subscribe(()=>{
     this.allLibros = this.allLibros.filter((item: any) => item.nameBook !== libro.nameBook);
     })
-    this._snackBar.open('Inmueble eliminado', '', {
+    this._snackBar.open('Artículo eliminado', '', {
       duration: 1500,
       horizontalPosition: 'center',
       verticalPosition: 'bottom'

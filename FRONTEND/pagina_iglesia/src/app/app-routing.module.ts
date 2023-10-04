@@ -9,11 +9,11 @@ import { FundamentosComponent } from './components/fundamentos/fundamentos.compo
 import { HorarioComponent } from './components/horario/horario.component';
 import { GestionunoComponent } from './components/gestionuno/gestionuno.component';
 import { EliminarArtComponent } from './components/eliminar-art/eliminar-art.component';
+import { EliminarHistoriaComponent } from './components/eliminar-historia/eliminar-historia.component';
 
 const routes: Routes = [
   //{path:"", component: HomeComponent},
   {path:"home", component: HomeComponent},
-  //{path:"apartamentos", component: ApartamentosComponent},
   {path:"nuestroPastor", component: NuestroPastorComponent},
   {path:"fundamentos", component: FundamentosComponent},
   {path:"horario", component: HorarioComponent},
@@ -21,7 +21,9 @@ const routes: Routes = [
   {path:"gestion", component: GestionComponent}, //canActivate:[AuthGuard]
   {path:"gestionUno", component: GestionunoComponent},
   {path: 'eliminar-art', component: EliminarArtComponent },
+  {path: 'eliminar-historia', component: EliminarHistoriaComponent},
   {path:"nosotros", component: NosotrosComponent},
+  {path:"**", component: HomeComponent},
 ];
 
 @NgModule({

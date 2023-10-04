@@ -23,36 +23,39 @@
 
   <section class="contacto">
     <div class="formulario">
-      <h2>Cargar Articulo</h2>
+      <h2>Cargar Artículo</h2>
       <form [formGroup]="pdf" (submit)="createLibro()">
-
+        
         <div class="grupo-formulario">
-          <label for="nombre">Titulo de Articulo</label>
-          <input formControlName="nameBook" type="text" id="nombre" name="nombre" placeholder="Nombre de articulo" required>
+          <label class="title_campos" for="nombre">Titulo de Artículo</label>
+          <input style="border:1px solid" class="label_title" formControlName="nameBook" type="text" id="nombre" name="nombre" placeholder="Nombre de artículo" required>
         </div>
 
         <div class="grupo-formulario">
-          <label for="correo">Selecione su portada</label>
+          <label class="title_campos" for="correo">Seleccione su portada</label>
           <input formControlName="images" (change)="onChangeInput($event)" type="file" placeholder="Ingresa imagen de portada" required>
         </div>
 
         <div class="grupo-formulario">
-          <label for="article">Article</label>
+          <label class="title_campo_area" for="article">Artículo</label>
           <textarea formControlName="article" type="text" id="article" name="article" placeholder="Ingresa el artículo" required></textarea>
         </div>
 
         <div class="grupo-formulario">
-          <input type="submit" value="Cargar libro" class="boton-enviar">
+          <input type="submit" value="Cargar artículo" class="boton-cargar-articulo">
         </div>
         <div class="card-footer">
-          <a href="/fundamentos" class="card-link color-link"><strong>Ver en fundamentos</strong></a>
-        </div>
+          <a href="/eliminar-art" class="boton_eliminar"><strong>Eliminar artículo</strong></a>
+        </div> <br> <br>
+
         <div class="card-footer">
-          <a href="/gestion" class="card-link color-link"><strong>ir a gestion</strong></a>
-        </div>
+          <a href="/fundamentos" class="ver-articulo-creado"><strong>Ver artículo creado</strong></a>
+        </div>  <br> <br>
+
         <div class="card-footer">
-          <a href="/eliminar-art" class="card-link color-link"><strong>Eliminar articulo</strong></a>
+          <a href="/gestion" class="boton_crear_img"><strong>Ruta imagen</strong></a>
         </div>
+
       </form>
     </div>
 </section>

@@ -1,27 +1,55 @@
 
   /*FOOTER*/
-
+/*
 .pie_pagina {
     clear: both;
 }
+*/
+
+.pie_pagina {
+    position: relative; /* Establece la posición relativa para que los elementos internos sean posicionados en relación con este div */
+}
 
 .rodapePrincipal {
-	background-color: rgb(234, 228, 195);
-    background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+    position: relative; /* Establece la posición relativa para que el video sea posicionado en relación con este div */
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(60%);
+    background-position: center center;
+}
+
+
+
+/*
+.rodapePrincipal {
+    background-size: cover;
     background-position: center;
 }
+*/
 
 .rodapePrincipal-navMap-list {
 	display: flex;/*divide footer por secciones*/
 	flex-flow: column wrap;
-	height: 30vh;/*dar altura de cada item*/
+	height: 50vh;/*dar altura de cada item*/
 }
 
+/*
 .rodapePrincipal-navMap-link {
 	text-decoration: none;
-	color: #FFF;
-	margin-top: 10px;
+	color: #9a1818;
+	margin-top: 30px;
+    height: 800px;
+    width: 250px;
 }
+*/
 
 .navmap-list-title {
 	font-weight: 700;
@@ -36,10 +64,10 @@
 	margin-top: 0;
 }
 
-.navmap-list-title-bancoDeDados { color: #f60808; border-left: 4px solid #f60808; }
-.navmap-list-title-framework { color: #AD85BF; border-left: 4px solid #AD85BF; }
-.navmap-list-title-frontend { color: #5EC6F3; border-left: 4px solid #5EC6F3; }
-.direccion { color: #25D285; border-left: 4px solid #25D285; }
+.navmap-list-title-bancoDeDados { color: #f60808; border-left: 2px solid #f60808; }
+.navmap-list-title-framework { color: #AD85BF; border-left: 2px solid #AD85BF; }
+.navmap-list-title-frontend { color: #5EC6F3; border-left: 2px solid #5EC6F3; }
+.direccion { color: #25D285; border-left: 2px solid #25D285; }
 
 .subtitulo {
   color: rgb(0, 0, 0);
@@ -75,7 +103,38 @@
 }
 
 
+@media screen and (max-width: 1024px) {
+    .rodapePrincipal-navMap-list {
+		height: auto;
+	}
+    .horario-servicios {
+        height: auto;
+    }
+    .addres {
+        font-size: 0.8rem;
+    }
+    .barrio {
+        font-size: 0.8rem;
+    }
+    .telefono {
+        font-size: 0.8rem;
+    }
+    .dia-adoracion {
+        font-size: 1rem;
+    }
+    .hora-adoracion {
+        font-size: 1rem;
+    }
+    .rodapePrincipal-navMap-list {
+        display: flex;/*divide footer por secciones*/
+        flex-flow: column wrap;
+        height: 40vh;/*dar altura de cada item*/
+        width: 100%;
+    }
+}
+
 /* Responsive */
+/*
 @media(max-width: 768px) {
 	.rodapePrincipal-navMap-list {
 		height: auto;
@@ -84,6 +143,8 @@
         height: auto;
     }
 }
+*/
+
 
 @media (min-width: 769px) {
     .rodapePrincipal-navMap-list {
@@ -91,7 +152,8 @@
         display: flex;
         justify-content: space-between;
     }
-  }
+}
+
 
 /*mini*/
 .negro{

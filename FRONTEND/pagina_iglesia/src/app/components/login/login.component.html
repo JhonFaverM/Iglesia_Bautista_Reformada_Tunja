@@ -1,27 +1,61 @@
+<!-- 
+
 
 <body class="">
-    <section>
-      <div class="body">
-        <div class="login">
-        <h1 class="color"><a href="" class="logo">
-          <img src="../../../assets/logo7.jpg" alt=""></a></h1>
-          <form>
-            <img src="../../../assets/img/usuario.png"  width="50%" alt="img_logo">
-            <h1 class="color">Iniciar Sesion</h1>
-            <mat-form-field class="ancho" appearance="fill">
-              <mat-label  for="user" class="form-label">Usuario</mat-label>
-              <input matInput autocomplete="off" formControlName="usuario" id="user" name="user" aria-describedby="emailHelp">
-            </mat-form-field>
-            <mat-form-field class="ancho" appearance="fill">
-              <mat-label>Contraseña</mat-label>
-              <input matInput autocomplete="off" formControlName="password"  type="password">
-            </mat-form-field>
-            <br>
-            <button class="ancho button" mat-raised-button color="primary" type="submit">Ingresar</button>
-          </form>
-        </div>
+  <section>
+    <div class="body">
+      <div class="login">
+        <img src="../../../assets/logo7.jpg" alt="">
+
+        <form (submit)="login()">
+            <h1 class="titulo_iniciar">Iniciar Sesión</h1>
+
+          <div class="ancho">
+            <label for="user" class="form-label">Usuario</label>
+            <input type="email" class="form-control" id="user" name="user" aria-describedby="emailHelp" [(ngModel)]="loginData.usuario">
+
+          </div>
+
+          <div class="ancho">
+            <label for="pass" class="form-label">Contraseña</label>
+            <input type="password" class="form-control
+            " id="pass" name="pass" [(ngModel)]="loginData.password">
+          </div>
+
+          <br>
+          <button class="ancho button" mat-raised-button color="primary" type="submit">Ingresar</button>
+        </form>
+
       </div>
-    </section>
+    </div>
+  </section>
 
 </body>
+
+-->
   
+
+
+
+<div class="container mt-5">
+  <div class="card">
+      <div class="card-header">
+          Login
+      </div>
+      <div class="card-body">
+          <form (submit)="login()">
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" [(ngModel)]="datosLogin.email">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="datosLogin.pass">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+  </div>
+</div>
+

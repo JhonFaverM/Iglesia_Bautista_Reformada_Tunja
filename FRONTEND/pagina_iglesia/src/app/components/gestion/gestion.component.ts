@@ -47,7 +47,7 @@ export class GestionComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = new FormGroup({     
-      idAparment: new FormControl(null),  
+      name_foto: new FormControl(null),  
       images: new FormControl(null)
     })
     
@@ -59,7 +59,7 @@ export class GestionComponent implements OnInit {
   }
   
   createFile(){
-    this.fileService.postFile(this.form.value.idAparment, this.images); 
+    this.fileService.postFile(this.form.value.name_foto, this.images); 
     this.form.reset();
   }
 

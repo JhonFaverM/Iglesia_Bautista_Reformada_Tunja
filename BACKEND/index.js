@@ -22,10 +22,13 @@ app.use(express.urlencoded({extended:false}));
 //app.use('/libros', libros)
 
 app.use('/images', express.static('./images'));  //muestra file planos
-app.use('/api/images', imagesRoutes);
+app.use('/api/images', imagesRoutes);   // app imagemultiples
+
 
 app.use('/libros', express.static('./libros'));
-app.use('/api/libros', librosRoutes);
+app.use('/api/libros', librosRoutes);   // app articulos
+
+
 
 app.use('/pdfs', express.static('./pdfs')); //static text.txt
 app.use('/api/pdfs', pdfsRoutes);

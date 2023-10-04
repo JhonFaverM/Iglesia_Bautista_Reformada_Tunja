@@ -28,7 +28,7 @@
         <div *ngIf = "files.length>0">
             <div *ngFor = "let file of files">
                 <div class="centar-text">
-                    <p>{{ file.idAparment }}</p>
+                    <p>{{ file.name_foto }}</p>
                 </div>
                 <div class="centrar">
                     <img class="img-paths" *ngFor="let images of file.imageRutas" [src]="images">

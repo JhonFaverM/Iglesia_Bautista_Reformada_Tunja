@@ -19,7 +19,7 @@ const login = (req, res)=>{
                     case (err):
                         res.send({ "msg": err })
                         break;
-                    case(user==null):
+                    case(user == null):
                         res.send({"msg":"No se encuentra el usuario"})
                         break;
                     case(user.password == req.body.password):

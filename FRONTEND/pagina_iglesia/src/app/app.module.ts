@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
+import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './components/login/login.component';
 import { GestionComponent } from './components/gestion/gestion.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
@@ -38,6 +40,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FooterComponent } from './components/footer/footer.component';
 import { ShowModalComponent } from './components/show-modal/show-modal.component';
 import { EliminarArtComponent } from './components/eliminar-art/eliminar-art.component';
+import { EliminarHistoriaComponent } from './components/eliminar-historia/eliminar-historia.component';
 
 
 
@@ -58,6 +61,7 @@ import { EliminarArtComponent } from './components/eliminar-art/eliminar-art.com
     FooterComponent,
     ShowModalComponent,
     EliminarArtComponent,
+    EliminarHistoriaComponent,
     
   ],
   imports: [
@@ -66,6 +70,7 @@ import { EliminarArtComponent } from './components/eliminar-art/eliminar-art.com
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
 
     //angular material
     MatToolbarModule,

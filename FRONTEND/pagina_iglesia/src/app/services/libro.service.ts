@@ -48,13 +48,11 @@ deleteArticulo(nameBook: string) {
 //metodo para crear libro en gestionUno
   postLibro(nameBook: string, article:string, images: FileList){     //metodo para grabar en postman y envbia al backend
     const libro = new FormData();     //objeto que nos enlista los artibutos a la base datos
-
     libro.append("nameBook", nameBook);      //metodo ´para adjuntar archivos append
     libro.append("article", article);
-
     for(let i=0; i<images.length; i++){
       console.log(images[i])
-      libro.append("images",images[i], );     //con el for podemos enviar imagen por imagen
+      libro.append("images",images[i]);     //con el for podemos enviar imagen por imagen
     }
 
     this.http.post<Libros>(this.url+"multiple", libro).subscribe((response: Libros)=>{

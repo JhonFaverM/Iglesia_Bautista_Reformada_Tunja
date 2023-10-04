@@ -50,6 +50,10 @@ const deleteArticulo = (req, res) => {
 
 
 
+
+
+
+
 /*
 const deleteArticulo = (req, res) => {
     libros.deleteOne({}, (err, mongoResponse)=>{

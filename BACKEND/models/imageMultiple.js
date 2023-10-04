@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ImageMultipleSchema = mongoose.Schema({
-    idAparment: {
+    name_foto: {
         type: String,
         require: true
     },
@@ -11,4 +11,4 @@ const ImageMultipleSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('ImageMultiple', ImageMultipleSchema, "imagemultiples");
+module.exports = mongoose.model('ImageMultiples', ImageMultipleSchema, "imageMultiples");

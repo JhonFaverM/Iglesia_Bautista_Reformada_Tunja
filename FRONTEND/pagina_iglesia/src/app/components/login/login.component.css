@@ -8,8 +8,13 @@
 
 .login {
     width: 80%;
-    max-width: 290px;
+    max-width: 20%;
     text-align: center;
+}
+
+.titulo_iniciar {
+    font-size: 2.0rem;
+    font-weight: 800;
 }
 
 .ancho {
@@ -27,3 +32,18 @@
 .example-spacer {
     flex: 1 1 auto;
 }
+
+/*========MEDIA QUERIES (SMALL DEVICES)========*/
+@media screen and (max-width: 600px) {
+    .body {
+        padding-top: 20%;
+    }
+    .login {
+        max-width: 60%;
+        padding-right: 20px;
+        padding-bottom: 30px;
+    }
+    input {
+        font-size: 0.9rem;
+    }
+  }
