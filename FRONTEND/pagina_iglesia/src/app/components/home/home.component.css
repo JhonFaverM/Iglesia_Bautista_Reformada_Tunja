@@ -38,13 +38,13 @@ body, .presentacion-container, .servicios, .liderazgo {
   }
 
   .carousel-item img {
-    height: 800px; /* altura deseada para el carrusel */
+    height: 800px;
     object-fit: cover;
   }
 
   .carousel-container {
-    max-width: 100%; /* ancho máximo deseado para el carrusel */
-    margin: 0 auto; /* centrar el carrusel horizontalmente */
+    max-width: 100%;
+    margin: 0 auto;
     padding-top: 80px;
   }
 
@@ -53,7 +53,6 @@ body, .presentacion-container, .servicios, .liderazgo {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* otros estilos de la superposición */
   }
 
   .carousel-control-prev,
@@ -64,7 +63,7 @@ body, .presentacion-container, .servicios, .liderazgo {
   /* pantalla grande */
 @media  screen and (min-width: 1024px) {
     .carousel-item img {
-      height: 800px; /* altura deseada para el carrusel en pantallas grandes */
+      height: 800px;
     }
   }
   
@@ -73,11 +72,11 @@ body, .presentacion-container, .servicios, .liderazgo {
     height: 450px;
   }
   .carousel-item img {
-    height: 450px; /* altura deseada para el carrusel en pantallas pequeñas */
+    height: 450px;
   }
   .carousel-container {
-    max-width: 100%; /* ancho máximo del contenedor en pantallas pequeñas */
-    padding-top: 10px; /* márgenes laterales del contenedor en pantallas pequeñas */
+    max-width: 100%;
+    padding-top: 10px;
   }
   .carousel-caption h3 {
       font-size: 5vw;
@@ -305,14 +304,14 @@ iframe {
 
 .rodapePrincipal {
 	background-color: rgb(234, 228, 195);
-  background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+  background-size: cover;
   background-position: center;
 }
 
 .rodapePrincipal-navMap-list {
-	display: flex;/*divide footer por secciones*/
+	display: flex;
 	flex-flow: column wrap;
-	height: 30vh;/*dar altura de cada item*/
+	height: 30vh;
 }
 
 .rodapePrincipal-navMap-link {

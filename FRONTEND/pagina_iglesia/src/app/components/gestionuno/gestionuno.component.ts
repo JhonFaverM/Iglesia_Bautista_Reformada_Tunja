@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class GestionunoComponent implements OnInit {
 
   allLibros: any;
-  libros: Libros[] = []; //llamar interfarces del model
+  libros: Libros[] = [];
 
 
   getAllLibros(){
@@ -32,8 +32,8 @@ export class GestionunoComponent implements OnInit {
     private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
-    this.pdf = new FormGroup({     //inicializar el formulario en cero
-      nameBook: new FormControl(null),  //permite manipular los input
+    this.pdf = new FormGroup({ 
+      nameBook: new FormControl(null),
       article: new FormControl(null),
       images: new FormControl(null)
     })
@@ -41,14 +41,14 @@ export class GestionunoComponent implements OnInit {
  
 
 
-  onChangeInput(event: Event){      //el event trae toda la informacion que contiene el elemento
-    this.images = (event.target as HTMLInputElement).files as FileList     //asi se captura el elememt file, crear variable images
+  onChangeInput(event: Event){
+    this.images = (event.target as HTMLInputElement).files as FileList 
 
   }
 
   
   createLibro(){
-    this.libroService.postLibro(this.pdf.value.nameBook, this.pdf.value.article, this.images);       //asi se accede a los atributos de los formularios
+    this.libroService.postLibro(this.pdf.value.nameBook, this.pdf.value.article, this.images);
     this.pdf.reset();
     this._snackBar.open('Creaste un nuevo Artículo', '', {
       duration: 2000,

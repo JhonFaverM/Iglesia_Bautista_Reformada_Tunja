@@ -1,17 +1,30 @@
-
-  /*FOOTER*/
-/*
-.pie_pagina {
-    clear: both;
+.logo-footer {
+    width: 450px;
 }
-*/
+
+footer{
+    text-align: center;
+    padding: 40px; 
+ }
+ 
+ .copyright{
+     color: #ffffff;
+     font-size: 18px;
+     margin: 20px;
+ }
+
+.barberia{
+    width: 100%;
+}
+  
+  /*FOOTER*/
 
 .pie_pagina {
-    position: relative; /* Establece la posición relativa para que los elementos internos sean posicionados en relación con este div */
+    position: relative;
 }
 
 .rodapePrincipal {
-    position: relative; /* Establece la posición relativa para que el video sea posicionado en relación con este div */
+    position: relative;
 }
 
 video {
@@ -22,150 +35,95 @@ video {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    filter: brightness(60%);
+    filter: brightness(70%);
     background-position: center center;
 }
 
-
-
-/*
-.rodapePrincipal {
-    background-size: cover;
-    background-position: center;
-}
-*/
-
 .rodapePrincipal-navMap-list {
-	display: flex;/*divide footer por secciones*/
+	display: flex;
 	flex-flow: column wrap;
-	height: 50vh;/*dar altura de cada item*/
+	height: 50vh;
 }
-
-/*
-.rodapePrincipal-navMap-link {
-	text-decoration: none;
-	color: #9a1818;
-	margin-top: 30px;
-    height: 800px;
-    width: 250px;
-}
-*/
 
 .navmap-list-title {
-	font-weight: 700;
-	font-size: 1.3em;
+	font-weight: 500;
+	font-size: 1.5em;
 	margin: .9em 0;
 	padding-left: .3em;
-	padding-top: .2em;
-	padding-bottom: .2em;
+	padding-top: .1em;
+	padding-bottom: .1em;
 }
 
 .navmap-list-title + .rodapePrincipal-navMap-link {
 	margin-top: 0;
 }
 
-.navmap-list-title-bancoDeDados { color: #f60808; border-left: 2px solid #f60808; }
-.navmap-list-title-framework { color: #AD85BF; border-left: 2px solid #AD85BF; }
-.navmap-list-title-frontend { color: #5EC6F3; border-left: 2px solid #5EC6F3; }
-.direccion { color: #25D285; border-left: 2px solid #25D285; }
+.objeto { color: #dfdfdf; border-left: 2px solid #25D285; }
 
-.subtitulo {
-  color: rgb(0, 0, 0);
-  font-size: 1.8rem;
-  padding-top: 1rem;
-  filter: brightness(90%);
-
-}
-
-.addres {
+.propiedad {
     color: #25D285;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+}
+.propieda {
+    color: #25D285;
+    font-size: 1rem;
 }
 
-.barrio {
-    color: #AD85BF;
-    font-size: 1.6rem;
-}
-
-.telefono {
-    color: #5EC6F3;
-    font-size: 1.6rem;
-}
-
-.dia-adoracion {
-    font-size: 1.4rem;
-    color: #f60808;
-}
-
-.hora-adoracion {
-    font-size: 1.2rem;
-    color: #f60808;
-}
-
-
-@media screen and (max-width: 1024px) {
-    .rodapePrincipal-navMap-list {
-		height: auto;
-	}
-    .horario-servicios {
-        height: auto;
-    }
-    .addres {
+@media screen and (max-width: 1024px) {  
+    .propiedad {
         font-size: 0.8rem;
     }
-    .barrio {
-        font-size: 0.8rem;
-    }
-    .telefono {
-        font-size: 0.8rem;
-    }
-    .dia-adoracion {
-        font-size: 1rem;
-    }
-    .hora-adoracion {
-        font-size: 1rem;
+    .objeto {
+        font-size: 1em;
     }
     .rodapePrincipal-navMap-list {
-        display: flex;/*divide footer por secciones*/
-        flex-flow: column wrap;
-        height: 40vh;/*dar altura de cada item*/
-        width: 100%;
-    }
-}
-
-/* Responsive */
-/*
-@media(max-width: 768px) {
-	.rodapePrincipal-navMap-list {
-		height: auto;
-	}
-    .horario-servicios {
-        height: auto;
-    }
-}
-*/
-
-
-@media (min-width: 769px) {
-    .rodapePrincipal-navMap-list {
+        height: 40vh;
         max-width: 100%;
         display: flex;
         justify-content: space-between;
     }
+
+    .navmap-list-title {
+        margin: 1em 0;
+        padding-left: .3em;
+        padding-top: .1em;
+        padding-bottom: 1.1em;
+    }
+    .logo-footer {
+        width: 280px;
+    }
+    
+    
+     
+     .copyright{
+         font-size: 12px;
+         margin: 20px;
+     }
 }
 
-
-/*mini*/
+/*footer mini*/
 .negro{
     background: #00152d;
     height: 65px;
+    font-size: 18px;
+    align-items: center;
 }
 
 .centralist{
     text-align: center;
+    align-items: center;
 }
 
 .title{
     color: white;
     text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) { 
+    .negro{
+        background: #00152d;
+        height: 30px;
+        font-size: 12px;
+        align-items: center;
+    } 
 }

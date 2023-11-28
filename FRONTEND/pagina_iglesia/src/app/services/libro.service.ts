@@ -27,6 +27,9 @@ export class LibroService {
   }
 */
 
+paginationLibros(){
+  return this.http.get("http://localhost:2500/api/pagination")
+}
 
 deleteArticulo(nameBook: string) {
   const deleteUrl = `${this.url}nameBook/${nameBook}`;

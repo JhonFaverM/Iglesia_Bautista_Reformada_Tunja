@@ -11,11 +11,12 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
 
   datosLogin = {
-    email: "",
-    pass: ""
+    usuario: "",
+    password: ""
   }
 
-  constructor(private authService: AuthService, private routerService: Router,private toastr: ToastrService) { }
+  constructor(private authService: AuthService, private routerService: Router, private toastr: ToastrService) { }
+
 
 
 
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(this.datosLogin).subscribe((res) => {
       if ((res as any).token) {
         localStorage.setItem('token', (res as any).token)
-        this.routerService.navigate(['/dashboard'])
+        this.routerService.navigate(['/gestionUno'])
       }else{
         this.toastr.error((res as any).msg, 'Error!');
       }

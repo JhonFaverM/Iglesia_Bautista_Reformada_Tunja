@@ -16,8 +16,13 @@
 .article {
     font-size: 1.2rem;
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5; /* Espaciado entre líneas */
+    line-height: 1.5;
 }
+
+.modal-content {
+    max-height: 70vh; 
+    overflow-y: auto;
+  }
 
 @media screen and (max-width: 1024px) {
     .titulo-h1 h1 {

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Files } from 'src/app/models/files';
 import { FileService } from 'src/app/services/file.service';
 
+import { MatIconModule } from '@angular/material/icon';
+
+
 
 
 @Component({
@@ -19,8 +22,13 @@ export class HorarioComponent implements OnInit {
     this.fileService.getFile();
     this.fileService.getFilesStream().subscribe((files: Files[])=>{
       this.files = files;
-      console.log(this.files);
+      //console.log(this.files);
     });
+  }
+
+  openWhatsApp() {
+    const whatsappURL = 'https://wa.me/573112089172';
+    window.open(whatsappURL, '_blank');
   }
 
 }

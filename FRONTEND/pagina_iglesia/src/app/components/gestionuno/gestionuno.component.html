@@ -1,30 +1,8 @@
-<!--
-    <div class="target_form">
-  <form  [formGroup]="pdf" (submit)="createLibro()">
-    <br>
-    <div>
-      <input formControlName="nameBook">
-    </div>
-    <br>
 
-    <div>
-      <input formControlName="images" (change)="onChangeInput($event)" type="file" multiple>
-  </div>
-
-    <br>
-    <div>
-      <button type="submit">Cargar Libro</button>
-  </div>
-</form>
-</div>
--->
-
-
-
-  <section class="contacto">
+  <section class="sec_princi">
     <div class="formulario">
       <h2>Cargar Artículo</h2>
-      <form [formGroup]="pdf" (submit)="createLibro()">
+      <form class="img" [formGroup]="pdf" (submit)="createLibro()">
         
         <div class="grupo-formulario">
           <label class="title_campos" for="nombre">Titulo de Artículo</label>
@@ -33,29 +11,28 @@
 
         <div class="grupo-formulario">
           <label class="title_campos" for="correo">Seleccione su portada</label>
-          <input formControlName="images" (change)="onChangeInput($event)" type="file" placeholder="Ingresa imagen de portada" required>
+          <input class="campo-escritura" formControlName="images" (change)="onChangeInput($event)" type="file" placeholder="Ingresa imagen de portada" required>
         </div>
 
         <div class="grupo-formulario">
-          <label class="title_campo_area" for="article">Artículo</label>
-          <textarea formControlName="article" type="text" id="article" name="article" placeholder="Ingresa el artículo" required></textarea>
+          <label class="title_campos" for="article">Artículo</label>
+          <textarea class="campo-escritura_area" formControlName="article" type="text" id="article" name="article" placeholder="Ingresa el artículo" required></textarea>
         </div>
 
-        <div class="grupo-formulario">
+        <div class="botones">
           <input type="submit" value="Cargar artículo" class="boton-cargar-articulo">
-        </div>
-        <div class="card-footer">
+        </div><br> <br>
+
+        <div class="botones">
           <a href="/eliminar-art" class="boton_eliminar"><strong>Eliminar artículo</strong></a>
         </div> <br> <br>
 
-        <div class="card-footer">
+        <div class="botones">
           <a href="/fundamentos" class="ver-articulo-creado"><strong>Ver artículo creado</strong></a>
         </div>  <br> <br>
-
-        <div class="card-footer">
-          <a href="/gestion" class="boton_crear_img"><strong>Ruta imagen</strong></a>
+        <div class="botones">
+          <a href="/gestion" class="boton_crear_img"><strong>Ruta crear imagen</strong></a>
         </div>
-
       </form>
     </div>
 </section>

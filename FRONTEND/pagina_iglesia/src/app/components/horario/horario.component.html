@@ -1,10 +1,45 @@
-<body>  
-  <section class="diferenciales container">
-    <ul class="diferenciales__lista">
-      <img class="img-pastor" src="../../../assets/img/familia-pastor.jpeg" alt="">
-    </ul>
-    <p class="item__texto">¡ El pastor Carlos cuyo liderazgo esta enraizado en el temor reverente a Dios 
-      y en la obediencia a Su palabra, su predicacion se caracteriza por ser fiel 
-      a la verdad biblica..</p>
+
+<div class="container-general">
+  <section class="img-banner container">
+    <div class="horario__image-container">
+      <img class="img-monumento" src="../../../assets/img/monumento2.png" alt="Monumento">
+    </div>
   </section>
-</body>
+
+  <section class="horario container">
+
+    <ul class="diferenciales__lista">
+
+        <li class="diferenciales__item">
+          <div class="item__icon">
+            <mat-icon class="rotating-icon">location_on</mat-icon>
+          </div>
+          <div class="item__content">
+            <h2 class="item__titulo">Dirección</h2>
+            <p class="item__texto">Cra 7A # 51-01 La Granja - Tunja. </p>
+          </div>
+        </li>
+
+        <li class="diferenciales__item diferenciales__item--domingo">
+            <div class="item__icon">
+              <mat-icon>today</mat-icon>
+            </div>
+            <div class="item__content">
+              <h2 class="item__titulo">Servicios en el día Domingo</h2>
+              <p class="item__texto">Instrucción bíblica 10:00 am <br> Culto principal 11:00 am</p>
+            </div>
+          
+        </li>
+
+        <li class="diferenciales__item">
+          <div class="item__content">
+            <span class="whatsapp-icon" (click)="openWhatsApp()">
+              <i class="fa fa-whatsapp"> 3117697775</i>
+            </span>
+          </div> 
+        </li>
+
+        
+    </ul>
+</section>
+</div>

@@ -1,6 +1,7 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 //import { RouterLinkActive } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,10 +13,9 @@ export class NavbarComponent implements OnInit {
   location: string = '';
   gestionUnoDropdownOpen: boolean = false;
 
-  constructor(
-    private router: Router,
-    
-    ) { }
+
+  constructor(private router: Router, public authService: AuthService) {
+   }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
@@ -24,6 +24,8 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
+
+  
 
   toggleMobile(): void {
     this.Mobile = !this.Mobile;

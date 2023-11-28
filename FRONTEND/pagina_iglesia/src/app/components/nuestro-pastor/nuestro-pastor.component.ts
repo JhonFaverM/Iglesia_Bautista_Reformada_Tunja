@@ -17,7 +17,7 @@ export class NuestroPastorComponent implements OnInit {
     this.fileService.getFile();
     this.fileService.getFilesStream().subscribe((files: Files[])=>{
       this.files = files;
-      console.log(this.files);
+      //console.log(this.files);
     });
   }
 

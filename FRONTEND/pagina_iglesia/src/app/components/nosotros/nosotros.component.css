@@ -1,10 +1,127 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
+
+.horario {
+  padding-top: 2.5rem;
+  margin-top: 60px;
+}
+
+.horario__image-container {
+  position: relative;
+  max-width: 100%;
+  text-align: center;
+}
+
+.img-horario {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.horario__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+}
+
+
+  .carousel-inner {
+    height: 600px;
+  }
+
+  .carousel-item img {
+    height: 600px;
+    object-fit: cover;
+  }
+
+  .carousel-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: 80px;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+
+  /* pantalla grande */
+@media  screen and (min-width: 1024px) {
+    .carousel-item img {
+      height: 800px;
+    }
+  }
+  
+@media screen and (max-width: 1024px) {
+  .carousel-inner {
+    height: 450px;
+  }
+  .carousel-item img {
+    height: 450px;
+  }
+  .carousel-container {
+    max-width: 100%;
+    padding-top: 10px;
+  }
+  .carousel-caption h3 {
+      font-size: 5vw;
+  }  
+  .carousel-caption p {
+    font-size: 3vw;
+  }
+}
+/*FINALIZA CAROUSEL */
+
+
+.text-center {
+    color: aliceblue;
+}
 
 /* imagen de fondo*/
 .img-fondo{
     height: 250px;
     width: 100%;
     opacity: 2;
+}
+.subtitulo1 {
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 1.7rem;
+    color: rgb(10, 34, 76);
+}
+
+.subtitulo {
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 1.3rem;
+    color: gray;
+}
+
+.descripcion {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+@media (max-width: 1024px) {
+    .subtitulo1 {
+        font-size: 1.2rem;
+    }
+    .descripcion {
+        font-size: 0.9rem;
+    }
 }
 
 
@@ -21,15 +138,28 @@
     padding-bottom: 2rem;
 }
 
-.institucional__titulo {
+.titulo {
     color: var(--fuente-ceniza-oscuro);
     font-weight: 700;
     font-size: 1.5rem;
-    font-family: var(--montserrat);
-    text-transform: uppercase;
+    font-family: 'Edu TAS Beginner', cursive;
     text-align: center;
 
     margin-bottom: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .titulo {
+        font-size: 1.2rem;
+    }
+}
+
+
+.descripcion__pastor {
+    font-size: 1.2rem;
+    line-height: 1.8;
+
+    margin-top: 2rem;
 }
 
 .institucional__descripcion {
@@ -43,13 +173,6 @@
     margin-bottom: 2rem;
 }
 
-.descripcion__pastor {
-    font-size: 1.2rem;
-    line-height: 1.8;
-
-    margin-top: 2rem;
-}
-
 .institucional__contacto-telefono {
     line-height: normal;
 }
@@ -61,8 +184,21 @@
 
 }
 
-.institucional__video {
-    width: 100vw;
+.card_confesion {
+    width: 100%;
+}
+
+.card_ibrt {
+    width: 50%;
+}
+
+@media (max-width: 1024px) {
+    .card_confesion {
+        width: 100%;
+    }
+    .card_ibrt {
+        width: 100%;
+    }
 }
 
 /*NUESTRA HISTORIA*/
@@ -111,119 +247,10 @@
         justify-content: space-between;
         text-align: left;
     }
-    .institucional__video{
-        align-self: flex-end;
-        width: 375px;
-    }
-    
-}
-
-@media (max-width: 1024px) {
-    .institucional__video {
-      max-width: 100%;
-    }
-}
-
-/*FOOTER*/
-/*
-
-.rodapePrincipal {
-	background-color: #324C64;
-	padding-top: 20px;
-}
-
-.rodapePrincipal-navMap-list {
-	display: flex;
-	flex-flow: column wrap;
-	height: 250px;
-}
-
-.rodapePrincipal-navMap-link {
-	text-decoration: none;
-	color: #FFF;
-	margin-top: 10px;
-}
-
-.navmap-list-title {
-	font-weight: 700;
-	font-size: 1.3em;
-	margin: .9em 0;
-	padding-left: .3em;
-	padding-top: .2em;
-	padding-bottom: .2em;
-}
-
-.navmap-list-title + .rodapePrincipal-navMap-link {
-	margin-top: 0;
-}
-
-.navmap-list-title-bancoDeDados { color: #EC6E5A; border-left: 4px solid #EC6E5A; }
-.navmap-list-title-framework { color: #AD85BF; border-left: 4px solid #AD85BF; }
-.navmap-list-title-frontend { color: #5EC6F3; border-left: 4px solid #5EC6F3; }
-.navmap-list-title-backend { color: #25D285; border-left: 4px solid #25D285; }
-
-.subtitulo {
-    color: white;
-    font-size: 1.8rem;
-}
-
-.addres {
-    color: #25D285;
-    font-size: 1.6rem;
-}
-
-.barrio {
-    color: #AD85BF;
-    font-size: 1.6rem;
-}
-
-.telefono {
-    color: #5EC6F3;
-    font-size: 1.6rem;
-}
-
-.dia-adoracion {
-    font-size: 1.4rem;
-    color: #EC6E5A;
-}
-
-.hora-adoracion {
-    font-size: 1.2rem;
-    color: #EC6E5A;
 }
 
 
-@media(max-width: 768px) {
-	.rodapePrincipal-navMap-list {
-		height: auto;
-	}
-    .horario-servicios {
-        height: auto;
-    }
-}
 
-@media (min-width: 769px) {
-    .rodapePrincipal-navMap-list {
-        max-width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-  }
-
-  .negro{
-    background: #00152d;
-    height: 65px;
-}
-
-.centralist{
-    text-align: center;
-}
-
-.title{
-    color: white;
-    text-decoration: none;
-}
-*/
 
 
 

@@ -1,12 +1,40 @@
 //const libro = require("../models/libro");
 const libros = require("../models/libro");
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 
-/*Corroborar estas dos funciones */
-pagination = async (req, res)=>{
-    const pdf = await libros.find();
-    res.status(200).json(pdf);
-}
+
+pagination = async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 4;
+
+    try {
+        const options = {
+            page: page,
+            limit: limit
+        };
+
+        const result = await libros.paginate({}, options);
+        res.status(200).json({
+            page: result.page,
+            totalPages: result.totalPages,
+            books: result.docs
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error al paginar los libros" });
+    }
+    console.log('desde pagination')
+};
+
+// Resto del código...
+
+
+
+
+
+
+
 
 /*Funcion que trae la ruta de imagenes libros */
 getImages = async (req, res)=>{
@@ -54,31 +82,9 @@ const deleteArticulo = (req, res) => {
 
 
 
-/*
-const deleteArticulo = (req, res) => {
-    libros.deleteOne({}, (err, mongoResponse)=>{
-        if(err) return res.send(err)
-        console.log(mongoResponse)
-        return mongoResponse.deletedCount === 1 ? res.send("Se eliminó un documento") : res.send("No se eliminó ningun documento")
-    })
-}
-*/
-
-//elaborar funciones 
-const createLibro = (req, res)=>{}
-const actualizarLibro = (req, res)=>{}
-
-
-
-
 module.exports = {
     deleteArticulo,
     postLibro,
     getImages,
     pagination,
 }
-
-
-
-//const image = require("../models/image");
-//const imageMultiple = require("../models/imageMultiple");

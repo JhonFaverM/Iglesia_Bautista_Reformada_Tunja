@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+//import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
@@ -13,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FundamentosComponent } from './components/fundamentos/fundamentos.component';
 import { NuestroPastorComponent } from './components/nuestro-pastor/nuestro-pastor.component';
 import { GestionunoComponent } from './components/gestionuno/gestionuno.component';
+import { AuthGuard } from './guard/auth.guard';
 
 
 
@@ -34,6 +36,7 @@ import { HorarioComponent } from './components/horario/horario.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 
+
 //material navbar
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -41,6 +44,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ShowModalComponent } from './components/show-modal/show-modal.component';
 import { EliminarArtComponent } from './components/eliminar-art/eliminar-art.component';
 import { EliminarHistoriaComponent } from './components/eliminar-historia/eliminar-historia.component';
+import { InterceptorService } from './services/interceptor.service';
 
 
 
@@ -71,6 +75,7 @@ import { EliminarHistoriaComponent } from './components/eliminar-historia/elimin
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    ToastrModule.forRoot(),
 
     //angular material
     MatToolbarModule,
@@ -87,9 +92,16 @@ import { EliminarHistoriaComponent } from './components/eliminar-historia/elimin
     MatGridListModule,
     MatDialogModule,
 
+
     
   ],
-  providers: [],
+  providers: [AuthGuard, 
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,7 +24,7 @@ export class FundamentosComponent implements OnInit {
 
   selectedLibro: any;
 
-  itemsPerPage: number =20; // Número de elementos por página
+  itemsPerPage: number =10; // Número de elementos por página
   currentPage: number = 1; // Página actual
 
   allLibros: any[] = [];
@@ -38,9 +38,11 @@ export class FundamentosComponent implements OnInit {
 ngOnInit(): void {
   this.libroService.getLibro();//llama al metodo getLibro del servicio
   this.currentPage = 1; // Inicializar o comienza a mostrar la primera pegina
+
   this.libroService.getLibrosStream().subscribe((libros: Libros[]) => {
     this.libros = libros.map(libro => ({ ...libro, mostrarCompleto: false }));
-    console.log(this.libros);
+    this.updateLibros();
+    //console.log(this.libros);
   });
 }
 
@@ -51,8 +53,14 @@ get pages(): number[] {
 
 changePage(page: number): void {
   this.currentPage = Math.min(Math.max(page, 1), this.pages.length);
-  this.libroService.getLibro(); // Obtener los libros de la página actual
+  this.updateLibros(); // Obtener los libros de la página actual
 }
+
+updateLibros(): void {
+  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  this.librosMostrar = this.libros.slice(startIndex, startIndex + this.itemsPerPage);
+}
+
 
 
   mostrarArticuloCompleto(libro: any) {
@@ -68,69 +76,4 @@ changePage(page: number): void {
       libro.mostrarCompleto = false;
     });
   }
-
-
 }
-
-
-/*
-  getAllLibros(){
-    this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
-      this.allLibros = libros
-    }) 
-    
-  }
-  */
-
-
-
-
-  //OPCION 2
-/*
-  fetchLibros() {
-    this.libroService.pagination(this.currentPage, this.itemsPerPage).subscribe(
-      (libros: Libros[]) => {
-        console.log('Fetched libros:', libros);
-        this.libros = libros.map(libro => ({ ...libro, mostrarCompleto: false }));
-      },
-      (error) => {
-        console.error('Error fetching libros:', error);
-      }
-    );
-  }
-*/
-
-
-  /*
-  getAllLibros(){
-    this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
-      this.allLibros = libros
-    }) 
-    
-  }
-  */
-  /*
-    pagination(){
-      this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
-        this.allLibros = libros;
-        console.log(this.libros)
-        console.log("desde pagination")
-      })
-    
-    }
-    */
-  
-
-
-/*
-  
-  <div [formGroup]="myGroup">
-    <input formControlName="firstName">
-  </div>
-
-  In your class:
-
-  this.myGroup = new FormGroup({
-      firstName: new FormControl()
-  });
-*/

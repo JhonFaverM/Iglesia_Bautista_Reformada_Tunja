@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require('mongoose-paginate-v2');
+
 
 const librosSchema = mongoose.Schema({
     nameBook: {
@@ -15,4 +17,14 @@ const librosSchema = mongoose.Schema({
     }
 });
 
+librosSchema.plugin(mongoosePaginate);
+const Libro = mongoose.model('Libro', librosSchema);
+
+
+
+
 module.exports = mongoose.model('Libros', librosSchema, "libros");
+
+
+
+

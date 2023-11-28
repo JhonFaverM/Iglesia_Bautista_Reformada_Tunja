@@ -2,14 +2,14 @@
   <div class="container flexSB">
     <nav class="flexSB">
       <div class="logo">
-        <img src="../../../assets/img/logo1.png" alt="Img logo" />
+        <img src="../../../assets/img/312MFo-LogoMakr.png" alt="Img logo" />
       </div>
       <ul [class.active]="Mobile" class="{{ Mobile ? 'navMenu-list active' : 'flexSB' }}" (click)="toggleMobile()">
         <li>
           <a routerLink="/home" [ngClass]="{ 'active': location === '/home' }">Inicio</a>
         </li>
         <li>
-          <a routerLink="/gestionUno" [ngClass]="{ 'active': location === '/gestionUno' }">GestionUno</a>
+          <a routerLink="/login" [ngClass]="{ 'active': location === '/gestionUno' }">Gestion</a>
         </li>
      
         <li>
@@ -32,103 +32,6 @@
     </nav>
   </div>
 </header>
-
-<!-- 
-
-
-  <header >
-    <div class="container-fluid">
-
-      
-
-      <div class="navb-items">
-        <div class="navb-logo">
-          <img src="../../../assets/img/logo.png" alt="logo" />
-        </div>
-        <div class="item">
-          <a href="/home">Home</a>
-        </div>
-        <div class="item">
-          <a href="/gestion">Gestion</a>
-        </div>
-        <div class="item">
-          <a href="/login">Login</a>
-        </div>
-        <div class="item">
-          <a href="/horario">Contacto</a>
-        </div>
-        <div class="item">
-          <a href="/nosotros">Nosotros</a>
-        </div>
-        <div class="item">
-          <a href="/horario">Horario</a>
-        </div>
-      </div>
-
-       Button trigger modal 
-      <div class="mobile-toggler d-lg-none navbar-toggler">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#navbModal">
-          <i class="fa-solid fa-bars"></i>
-        </a>
-      </div>
-
-       Modal 
-      <div class="modal fade" id="navbModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-   
-    
-   
-  
-  </header>
-
-
--->
-
-
-
-
-
-
-<!-- 
-<header class="head container">
-  <img class="head__logo" src="../../../assets/img/logo.png" alt="logo" />
-  <nav class="head__navegacion">
-      <ul class="navega">
-          <li class="head__enlace"><a href="#nosotros">Nosotros</a></li>
-          <li class="head__enlace"><a href="#planes">Planes</a></li>
-          <li class="head__enlace"><a href="#footer">Blog</a></li>
-          <li class="head__enlace"><a href="#destacado">Destacados</a></li>
-          <li class="head__enlace"><a href="#contacto">Ubicación</a></li>
-          <li class="head__enlace"><a href="#contacto">Contacto</a></li>
-          <a href="#"></a>
-      </ul>
-  </nav>
-
-</header>
-
--->
-
-
-
 
 
 
