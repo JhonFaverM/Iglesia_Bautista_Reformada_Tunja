@@ -2,7 +2,7 @@
   <div class="container flexSB">
     <nav class="flexSB">
       <div class="logo">
-        <img src="../../../assets/img/312MFo-LogoMakr.png" alt="Img logo" />
+        <img matTooltip="Pagina pricipal" routerLink="/home" src="../../../assets/img/312MFo-LogoMakr.png" alt="Img logo" />
       </div>
       <ul [class.active]="Mobile" class="{{ Mobile ? 'navMenu-list active' : 'flexSB' }}" (click)="toggleMobile()">
         <li>
@@ -32,6 +32,7 @@
     </nav>
   </div>
 </header>
+
 
 
 
