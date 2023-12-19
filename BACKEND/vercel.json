@@ -1,27 +1,15 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "Iglesia_Bautista_Reformada_Tunja/BACKEND/*.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "Iglesia_Bautista_Reformada_Tunja/FRONTEND/pagina_iglesia/package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "Iglesia_Bautista_Reformada_Tunja/FRONTEND/pagina_iglesia/build"
-        }
-      }
-    ],
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "/Iglesia_Bautista_Reformada_Tunja/BACKEND/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/Iglesia_Bautista_Reformada_Tunja/FRONTEND/pagina_iglesia/$1"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "./index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
