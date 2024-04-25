@@ -5,6 +5,7 @@ const port = process.env.PORT || 3000;
 const db = require("./database/db");
 const imagesRoutes = require("./routes/images");
 const librosRoutes = require("./routes/libros");
+const miembrosRoutes = require("./routes/miembros");
 
 const {administradores} = require("./routes/administradores");//desestructurar
 //const { libros } = require("./routes/libros")
@@ -33,6 +34,9 @@ app.use('/api/libros', librosRoutes);   // app articulos
 
 app.use('/pdfs', express.static('./pdfs')); //static text.txt
 app.use('/api/pdfs', pdfsRoutes);
+
+app.use('/miembros', express.static('./miembros'));
+app.use('/api/miembros', miembrosRoutes);
 
 app.use('/administradores', administradores);//la segunda admis es una variable
 
