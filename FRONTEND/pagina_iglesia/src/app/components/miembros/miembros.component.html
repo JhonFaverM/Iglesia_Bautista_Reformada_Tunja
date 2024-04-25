@@ -1,0 +1,23 @@
+
+
+<table class="table table-sm table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre Completo</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Dirección</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let miembro of miembros; let i = index">
+      <th scope="row">{{ contadorFilas + i}}</th>
+      <td>{{ miembro.nombre_completo }}</td>
+      <td>{{ miembro.estado }}</td>
+      <td>{{ miembro.telefono }}</td>
+      <td>{{ miembro.direccion }}</td>
+    </tr>
+  </tbody>
+</table>
+

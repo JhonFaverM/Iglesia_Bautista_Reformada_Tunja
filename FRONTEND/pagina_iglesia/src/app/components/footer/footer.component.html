@@ -1,14 +1,24 @@
 <section class="pie_pagina">
     <footer class="rodapePrincipal">
-      <video autoplay muted loop>
-        <source src="../../../assets/videos/rio.mp4" type="video/mp4">
-      </video>
-      <img matTooltip="Servicios día domingo" class="pointer" routerLink="/horario" class="logo-footer" src="../../../assets/img/servicios.png" alt="Img logo"> 
+        <img class="video" src="../../../assets/img/rio.png" type="video/mp4">
+      <a (click)="openWhatsApp()" matTooltip="Enviar whatsapp al pastor" class="pointer" href="#contacto" >
+        <img class="logo-footer" src="../../../assets/img/click-contacto.png" alt="Img contacto">
+      </a>
     </footer>
 </section>
   
-  <footer class="negro">
-      <div id="site-cnt" class="centralist">
-        <a class="title"> Iglesia Bautista Reformada De Tunja | Gracia Sobre Gracia © 2024 </a>
-      </div>
-  </footer>
+<footer class="negro">
+    <div id="site-cnt" class="centralist">
+      <a class="title"> Iglesia Bautista Reformada De Tunja | Gracia Sobre Gracia © 2024 </a>
+    </div>
+</footer>
+<!-- 
+  <section class="pie_pagina">
+    <footer class="rodapePrincipal">
+      <video autoplay muted loop>
+        <source src="../../../assets/videos/rio.mp4" type="video/mp4">
+      </video>
+      <img (click)="openWhatsApp()" matTooltip="Enviar whatsapp al pastor" class="pointer" class="logo-footer" src="../../../assets/img/click-cont.png" alt="Img logo"> 
+    </footer>
+</section>
+-->

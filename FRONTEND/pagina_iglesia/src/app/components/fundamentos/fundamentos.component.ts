@@ -29,37 +29,39 @@ export class FundamentosComponent implements OnInit {
 
   allLibros: any[] = [];
 
+  busqueda: string = ''; // Variable para almacenar la búsqueda
+
   constructor(
     private libroService: LibroService,
     private dialog:MatDialog
     ) { } //suscripcion al servicio
 
 
-ngOnInit(): void {
-  this.libroService.getLibro();//llama al metodo getLibro del servicio
-  this.currentPage = 1; // Inicializar o comienza a mostrar la primera pegina
+  ngOnInit(): void {
+    this.libroService.getLibro();//llama al metodo getLibro del servicio
+    this.currentPage = 1; // Inicializar o comienza a mostrar la primera pegina
 
-  this.libroService.getLibrosStream().subscribe((libros: Libros[]) => {
-    this.libros = libros.map(libro => ({ ...libro, mostrarCompleto: false }));
-    this.updateLibros();
-    //console.log(this.libros);
-  });
-}
+    this.libroService.getLibrosStream().subscribe((libros: Libros[]) => {
+      this.libros = libros.map(libro => ({ ...libro, mostrarCompleto: false }));
+      this.updateLibros();
+      //console.log(this.libros);
+    });
+  }
 
 
-get pages(): number[] {
-  return Array.from({ length: Math.ceil(this.libros.length / this.itemsPerPage) }, (_, i) => i + 1);
-}
+  get pages(): number[] {
+    return Array.from({ length: Math.ceil(this.libros.length / this.itemsPerPage) }, (_, i) => i + 1);
+  }
 
-changePage(page: number): void {
-  this.currentPage = Math.min(Math.max(page, 1), this.pages.length);
-  this.updateLibros(); // Obtener los libros de la página actual
-}
+  changePage(page: number): void {
+    this.currentPage = Math.min(Math.max(page, 1), this.pages.length);
+    this.updateLibros(); // Obtener los libros de la página actual
+  }
 
-updateLibros(): void {
-  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-  this.librosMostrar = this.libros.slice(startIndex, startIndex + this.itemsPerPage);
-}
+  updateLibros(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    this.librosMostrar = this.libros.slice(startIndex, startIndex + this.itemsPerPage);
+  }
 
 
 
@@ -76,4 +78,18 @@ updateLibros(): void {
       libro.mostrarCompleto = false;
     });
   }
+
+  // Función para buscar libros
+  buscarLibro() {
+    // Aquí puedes implementar la lógica para buscar libros utilizando this.busqueda
+    console.log('Búsqueda:', this.busqueda);
+    // También puedes llamar a un servicio para realizar la búsqueda en la base de datos
+    // Por ejemplo: this.libroService.buscarLibro(this.busqueda).subscribe(resultados => { ... });
+  }
+
+  // Método para limpiar el valor del input
+  limpiarInput() {
+    this.busqueda = '';
+  }
+
 }

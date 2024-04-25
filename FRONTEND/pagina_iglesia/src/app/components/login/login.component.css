@@ -1,3 +1,10 @@
+.card {
+    margin-top: 150px;
+    margin-bottom: 30px;
+    width: 50%;
+    text-align: center;
+}
+
 .body {
     display: flex;
     flex-direction: column;
@@ -12,6 +19,7 @@
     width: 80%;
     max-width: 20%;
     text-align: center;
+    padding-top: 70px;
 }
 
 .form-contro {
@@ -60,6 +68,7 @@
         max-width: 60%;
         padding-right: 20px;
         padding-bottom: 30px;
+        padding-top: 60px;
     }
     .form-contro {
         width: 100%;

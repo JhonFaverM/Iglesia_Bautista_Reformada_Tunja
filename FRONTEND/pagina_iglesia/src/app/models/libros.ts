@@ -8,5 +8,5 @@ export interface Libros {
     nameBook: string;
     article: string;
     bookRutas: string[];
-    mostrarCompleto: boolean;
+    mostrarCompleto: boolean;//revisar si toca eliminar
 }

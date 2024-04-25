@@ -12,7 +12,7 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FundamentosComponent } from './components/fundamentos/fundamentos.component';
-import { NuestroPastorComponent } from './components/nuestro-pastor/nuestro-pastor.component';
+//import { NuestroPastorComponent } from './components/nuestro-pastor/nuestro-pastor.component';
 import { GestionunoComponent } from './components/gestionuno/gestionuno.component';
 import { AuthGuard } from './guard/auth.guard';
 
@@ -32,9 +32,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { HorarioComponent } from './components/horario/horario.component';
+//import { HorarioComponent } from './components/horario/horario.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 
 
 //material navbar
@@ -45,6 +46,7 @@ import { ShowModalComponent } from './components/show-modal/show-modal.component
 import { EliminarArtComponent } from './components/eliminar-art/eliminar-art.component';
 import { EliminarHistoriaComponent } from './components/eliminar-historia/eliminar-historia.component';
 import { InterceptorService } from './services/interceptor.service';
+import { MiembrosComponent } from './components/miembros/miembros.component';
 
 
 
@@ -58,14 +60,15 @@ import { InterceptorService } from './services/interceptor.service';
     GestionComponent,
     NosotrosComponent,
     HomeComponent,
-    NuestroPastorComponent,
+    //NuestroPastorComponent,
     FundamentosComponent,
-    HorarioComponent,
+    //HorarioComponent,
     GestionunoComponent,
     FooterComponent,
     ShowModalComponent,
     EliminarArtComponent,
     EliminarHistoriaComponent,
+    MiembrosComponent,
     
   ],
   imports: [
@@ -91,6 +94,7 @@ import { InterceptorService } from './services/interceptor.service';
     MatCardModule,
     MatGridListModule,
     MatDialogModule,
+    MatTableModule
 
 
     

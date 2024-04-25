@@ -24,6 +24,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  openWhatsApp() {
+    const whatsappURL = 'https://wa.me/573112089172';
+    window.open(whatsappURL, '_blank');
+  }
+
   /*abrirModal(descripcion: string): void {
     const dialogRef: MatDialogRef<DescripcionModalComponent> = this.dialog.open(DescripcionModalComponent, {
       width: '500px',

@@ -9,6 +9,50 @@
           <a routerLink="/home" [ngClass]="{ 'active': location === '/home' }">Inicio</a>
         </li>
         <li>
+          <a routerLink="/nosotros" [ngClass]="{ 'active': location === '/nosotros' }">Nosotros</a>
+        </li>
+        <li>
+          <a routerLink="/fundamentos" [ngClass]="{ 'active': location === '/fundamentos' }">Artículos</a>
+        </li>
+        <li>
+          <a routerLink="/miembros" [ngClass]="{ 'active': location === '/miembros' }">Membresia</a>
+        </li>
+        <li *ngIf="!authService.isLoggedIn()">
+          <a routerLink="/login" [ngClass]="{ 'active': location === '/login' }">
+            Login
+          </a>
+        </li>
+        <li *ngIf="authService.isLoggedIn()">
+          <a class="logout" (click)="authService.logoutUser()">
+            Logout
+          </a>
+        </li>
+        <li>
+          <a routerLink="gestionUno" *ngIf="authService.isLoggedIn()" [ngClass]="{ 'active': location === '/gestionUno' }" (click)="changeNavbarColor(true)">Gestion</a>
+        </li>
+      </ul>
+      <button class="toggle" (click)="toggleMobile()">
+        <i *ngIf="Mobile" class="fa fa-times"></i>
+        <i *ngIf="!Mobile" class="fa fa-bars"></i>
+      </button>
+    </nav>
+  </div>
+</header>
+
+
+
+<!-- 
+  <header>
+  <div class="container flexSB">
+    <nav class="flexSB">
+      <div class="logo">
+        <img matTooltip="Pagina pricipal" routerLink="/home" src="../../../assets/img/312MFo-LogoMakr.png" alt="Img logo" />
+      </div>
+      <ul [class.active]="Mobile" class="{{ Mobile ? 'navMenu-list active' : 'flexSB' }}" (click)="toggleMobile()">
+        <li>
+          <a routerLink="/home" [ngClass]="{ 'active': location === '/home' }">Inicio</a>
+        </li>
+        <li>
           <a routerLink="/login" [ngClass]="{ 'active': location === '/gestionUno' }">Gestion</a>
         </li>
      
@@ -17,9 +61,6 @@
         </li>
         <li>
           <a routerLink="/fundamentos" [ngClass]="{ 'active': location === '/fundamentos' }">Artículos</a>
-        </li>
-        <li>
-          <a routerLink="/horario" [ngClass]="{ 'active': location === '/horario' }">Contacto</a>
         </li>
         <li>
           <a routerLink="/login" [ngClass]="{ 'active': location === '/login' }">Login</a>
@@ -32,7 +73,6 @@
     </nav>
   </div>
 </header>
-
-
+-->
 
 

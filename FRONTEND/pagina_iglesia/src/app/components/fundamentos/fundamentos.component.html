@@ -5,6 +5,17 @@
           <hr>
       </div>
   </div>
+
+   <!-- Formulario de búsqueda -->
+  <div class="row g-3 align-items-center">
+    <div class="col-auto">
+      <button (click)="buscarLibro(); limpiarInput()" type="button">Buscar artículo</button>
+    </div>
+    <div class="col-auto">
+      <input type="text" [(ngModel)]="busqueda" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
+    </div>
+  </div>
+
   
   <div class="d-flex flex-wrap justify-content-evenly mt-5">
     <div class="col-md-6" *ngFor="let libro of libros | slice:(currentPage-1)*itemsPerPage:currentPage*itemsPerPage">

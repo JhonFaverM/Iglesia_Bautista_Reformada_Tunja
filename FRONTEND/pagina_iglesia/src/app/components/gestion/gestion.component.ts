@@ -32,6 +32,7 @@ export class GestionComponent implements OnInit {
 
   form!: FormGroup;
   file!: Files; 
+  
   images!: FileList;
 
   book!: FormGroup;

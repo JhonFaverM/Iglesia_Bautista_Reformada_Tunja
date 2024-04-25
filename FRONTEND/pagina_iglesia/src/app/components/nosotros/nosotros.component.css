@@ -7,7 +7,8 @@ body, html {
 
 .horario {
   padding-top: 2.5rem;
-  margin-top: 60px;
+  margin-top: 90px;
+
 }
 
 .horario__image-container {
@@ -32,59 +33,6 @@ body, html {
 }
 
 
-  .carousel-inner {
-    height: 600px;
-  }
-
-  .carousel-item img {
-    height: 600px;
-    object-fit: cover;
-  }
-
-  .carousel-container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding-top: 80px;
-  }
-
-  .carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    display: none;
-  }
-
-  /* pantalla grande */
-@media  screen and (min-width: 1024px) {
-    .carousel-item img {
-      height: 800px;
-    }
-  }
-  
-@media screen and (max-width: 1024px) {
-  .carousel-inner {
-    height: 450px;
-  }
-  .carousel-item img {
-    height: 450px;
-  }
-  .carousel-container {
-    max-width: 100%;
-    padding-top: 10px;
-  }
-  .carousel-caption h3 {
-      font-size: 5vw;
-  }  
-  .carousel-caption p {
-    font-size: 3vw;
-  }
-}
-/*FINALIZA CAROUSEL */
 
 
 .text-center {
@@ -92,11 +40,13 @@ body, html {
 }
 
 /* imagen de fondo*/
+/*
 .img-fondo{
     height: 250px;
     width: 100%;
     opacity: 2;
 }
+*/
 .subtitulo1 {
     font-family: 'Edu TAS Beginner', cursive;
     font-size: 1.7rem;
@@ -116,11 +66,20 @@ body, html {
 }
 
 @media (max-width: 1024px) {
+    .text-center {
+        font-size: 1rem;
+    }
+    .horario {
+        width: 100%;
+    }
     .subtitulo1 {
         font-size: 1.2rem;
     }
     .descripcion {
         font-size: 0.9rem;
+    }
+    .horario__content p {
+        font-size: 0.7rem;
     }
 }
 
@@ -248,14 +207,3 @@ body, html {
         text-align: left;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
