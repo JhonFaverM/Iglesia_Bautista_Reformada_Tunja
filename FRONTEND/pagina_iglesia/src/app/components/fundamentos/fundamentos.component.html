@@ -1,98 +1,75 @@
 <div class="container mt-5">
   <div class="text-center">
-      <div class="card-body">
-          <h2 class="titulo-articulos-recomendados">Artículos Recomendados</h2>
-          <hr>
-      </div>
-  </div>
-
-   <!-- Formulario de búsqueda -->
-  <div class="row g-3 align-items-center">
-    <div class="col-auto">
-      <button (click)="buscarLibro(); limpiarInput()" type="button">Buscar artículo</button>
-    </div>
-    <div class="col-auto">
-      <input type="text" [(ngModel)]="busqueda" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
+    <div class="card-body">
+      <h2 class="titulo-articulos-recomendados">Artículos Recomendados</h2>
+      <hr>
     </div>
   </div>
 
-  
-  <div class="d-flex flex-wrap justify-content-evenly mt-5">
-    <div class="col-md-6" *ngFor="let libro of libros | slice:(currentPage-1)*itemsPerPage:currentPage*itemsPerPage">
-      <div class="card mb-3" style="border: none;">
-        <div class="row g-0 ">
-
-          <div class="col-md-5 d-flex align-items-center">
-            <img *ngFor="let images of libro.bookRutas" [src]="images" class="img-fluid imagen align-self-center ms-2">
-          </div>
-
-          <div class="col-md-8" >
-            <div class="card-body">
-              <h2 class="title-nameBook">{{ libro.nameBook }}</h2>
-              <div *ngIf="!libro.mostrarCompleto">
+  <div class="d-flex flex-wrap justify-content-evenly mt-5" *ngIf="librosMostrar.length > 0">
+    <div class="col-md-6 mb-4" *ngFor="let libro of librosMostrar">
+      <div class="d-flex align-items-center position-relative custom-card">
+        <div class="title-container">
+          <h2 class="title-num1">{{ libro.nameBook }}</h2>
+        </div>
+          <div class="image-container">
+            <img *ngFor="let images of libro.bookRutas" [src]="images" class="img-fluid custom-image-class">
+            <img src="../../../assets/img/312MFo-LogoMakr.png" class="logo-overlay">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h2 class="title-nameBook">{{ libro.nameBook }}</h2>
                 <p class="parrafo-article">{{ libro.article.substring(0, 100) }}...</p>
                 <button (click)="mostrarArticuloCompleto(libro)" type="button" class="btn btn-light">Leer más</button>
               </div>
-              <div class="card-text" *ngIf="libro.mostrarCompleto">
-                {{ libro.article }}
-              </div>
-
             </div>
-          </div>  
-        </div>
+          </div>
       </div>
     </div>
   </div>
 
-    <!-- Paginación -->
-    <nav>
-      <ul class="pagination justify-content-center">
-        <!-- Botón Anterior -->
-        <li class="page-item" [class.disabled]="currentPage === 1">
-          <a class="page-link" href="javascript:void(0)" (click)="changePage(currentPage - 1)">Anterior</a>
-        </li>
-    
-        <!-- Números de página -->
-        <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
-          <a class="page-link" href="javascript:void(0)" (click)="changePage(page)">{{ page }}</a>
-        </li>
-    
-        <!-- Botón Siguiente -->
-        <li class="page-item" [class.disabled]="currentPage === pages.length">
-          <a class="page-link" href="javascript:void(0)" (click)="changePage(currentPage + 1)">Siguiente</a>
-        </li>
-      </ul>
-    </nav>
+  <!-- Modal -->
+  <div *ngIf="selectedLibro" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="cerrarModal()">&times;</span>
+      <div class="modal-body">
+        <div class="contenido-img">
+          <img *ngFor="let images of selectedLibro.bookRutas" [src]="images" class="img-modal custom-modal-image-class">
+        </div>
+        <div class="titulo-h1">
+          <h1>{{ selectedLibro.nameBook }}</h1>
+        </div>
+        <p class="article modal-content">{{ selectedLibro.article }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- Paginación -->
+<nav>
+  <ul class="pagination justify-content-center">
+    <!-- Botón Anterior -->
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link custom-page-link" href="javascript:void(0)" (click)="changePage(currentPage - 1)">Anterior</a>
+    </li>
+
+    <!-- Números de página -->
+    <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+      <a class="page-link custom-page-link" href="javascript:void(0)" (click)="changePage(page)">{{ page }}</a>
+    </li>
+
+    <!-- Botón Siguiente -->
+    <li class="page-item" [class.disabled]="currentPage === pages.length">
+      <a class="page-link custom-page-link" href="javascript:void(0)" (click)="changePage(currentPage + 1)">Siguiente</a>
+    </li>
+  </ul>
+</nav>
+
+
+
 
 <!-- 
 &nbsp; 
 -->
-
-<!-- 
-
-
-  <nav>
-    <ul class="pagination justify-content-center">
-
-      <li class="page-item" [class.disabled]="currentPage === 1">
-        <a class="page-link" href="#" (click)="changePage(-1)">Anterior</a>
-      </li>
-
-      <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
-        <a class="page-link" href="#" (click)="changePage(page)">{{ page }}</a>
-      </li>
-
-      <li class="page-item" [class.disabled]="currentPage === pages.length">
-        <a class="page-link" href="#" (click)="changePage(1)">Siguiente</a>
-      </li>
-      
-    </ul>
-  </nav> 
--->
-
-
-
-
-
-

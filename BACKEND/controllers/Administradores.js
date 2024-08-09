@@ -3,6 +3,17 @@ const Administradores = require("../models/Administrador")
 
 
 
+const createAdmin = async (req, res) => {
+    try {
+        let admin = new Administradores(req.body);
+        await admin.save();
+        res.status(201).send(admin);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+};
+
+
 const listAdministradores = (req, res) => {
     Administradores.find((err, administradores) => {
         if(err) res.send(err)
@@ -11,7 +22,6 @@ const listAdministradores = (req, res) => {
 }
 
 const login = (req, res)=>{
-    //console.log("me llamaron")
     req.body.usuario && req.body.password ?
     Administradores.findOne({ usuario: req.body.usuario}, (err, user) => {
             console.log(user)
@@ -41,4 +51,8 @@ const login = (req, res)=>{
 
 
 
-module.exports = { login, listAdministradores}
+module.exports = {
+    login,
+    listAdministradores, 
+    createAdmin
+}

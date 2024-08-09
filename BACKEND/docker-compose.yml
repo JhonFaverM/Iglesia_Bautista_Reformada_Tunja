@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=jhonfa
+      - MONGO_INITDB_ROOT_PASSWORD=83215793
+    ports:
+      - 27020:27017
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: .
+    container_name: backend-ibrt
+    environment:
+      - MONGO_USER=jhonfa
+      - MONGO_PASSWORD=83215793
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_DATABASE=DBibrt
+    ports:
+      - 2500:2500
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/app
+    command: npm start
+
+volumes:
+  mongo_data:

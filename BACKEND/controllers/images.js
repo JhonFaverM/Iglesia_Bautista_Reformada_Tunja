@@ -13,7 +13,7 @@ postMultipleImage = async (req, res)=>{
     const imageRutas = []; //`http://localhost:${process.env.PORT}/images/${req.file.filename}`; //npmbre varable coincide con el del modelo
     req.files.forEach(element => {
         console.log(element.filename)
-        imageRutas.push(`http://localhost:${process.env.PORT}/images/${element.filename}`); //npmbre varable coincide con el del modelo
+        imageRutas.push(`http://localhost:${process.env.APP_PORT}/images/${element.filename}`); //npmbre varable coincide con el del modelo
     });
     console.log(imageRutas)
     const image = new imageMultiples({
