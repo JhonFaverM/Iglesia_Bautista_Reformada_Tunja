@@ -8,7 +8,7 @@ const verificarToken = (req, res, next) => {
     token = token.split(' ')[1]
     if (!token) res.send({ "msg": "No hay ningún token en header" })
     try {
-        let tokenPayload = jwt.verify(token, "iglesia-tunja")
+        let tokenPayload = jwt.verify(token, "iglesia-tunja")   // iglesia-tunja == clave secreta
         req.administrador = tokenPayload   //asesor es nombre cualquier, guarda lo que decodifica
         next()
     } catch (err) {

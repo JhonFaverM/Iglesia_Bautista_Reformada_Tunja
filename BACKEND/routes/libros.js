@@ -16,12 +16,8 @@ routes.get('/pagination', libroController.pagination);
 routes.get('/', libroController.getImages); //Metodo de libro controller
 routes.post('/multiple', storageMultiple, libroController.postLibro);
 
-//router.delete('/', deleteArticulo);
-
-
-routes.delete("/nameBook/:nameBook", deleteArticulo);
-//routes.delete("/nameBook/:nameBook", verificarToken, deleteArticulo);
-
+//routes.delete("/nameBook/:nameBook", deleteArticulo);
+routes.delete("/nameBook/:nameBook", verificarToken, libroController.deleteArticulo);
 
 
 

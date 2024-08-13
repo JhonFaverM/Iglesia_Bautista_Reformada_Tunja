@@ -24,3 +24,16 @@ docker run --name iglesiareformada -d -p 5003:5000 --network red_ibrt --link DBi
 
 # siguiente comando para crear y ejecutar un contenedor MongoDB
 docker run --name DBibrt -d -p 3003:3000 -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=jhonfa -e MONGO_INITDB_ROOT_PASSWORD=83215793 mongo
+
+git branch
+git add .
+git commit -m "Descripción breve de los cambios realizados"
+git push origin nombre_de_la_rama
+git push origin main
+
+
+# Para mostrar los libros em postman
+http://localhost:2500/api/libros
+
+# Metodo para eliminar
+http://localhost:2500/api/libros/nameBook/belleza
