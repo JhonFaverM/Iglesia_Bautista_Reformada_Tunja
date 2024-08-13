@@ -13,28 +13,23 @@ export class LibroService {
   readonly url = "http://localhost:2500/api/libros/";
   imagenes: Libros[] = [];
   libros$ = new Subject<Libros[]>();
-  httpClient: any;
 
   constructor(private http: HttpClient) {
   }
 
-  getAllLibros(){
-    return this.httpClient.get("http://localhost:2500/api/libros/")
+  getAllLibros(): Observable<Libros[]>{
+    return this.http.get<Libros[]>(this.url);
   }
-/*
-  deleteArticulo(libro: any) {
-    return this.httpClient.delete("http://localhost:2500/api/libros/")
-  }
-*/
 
 paginationLibros(){
   return this.http.get("http://localhost:2500/api/pagination")
 }
 
-deleteArticulo(nameBook: string) {
+deleteArticulo(nameBook: string): Observable<void> {
   const deleteUrl = `${this.url}nameBook/${nameBook}`;
-  return this.http.delete(deleteUrl);
+  return this.http.delete<void>(deleteUrl);
 }
+
   
   //Solicitud que trae los libros y los pasa a fundamentos
   getLibro(){
@@ -73,31 +68,3 @@ deleteArticulo(nameBook: string) {
 
 }
 
-
-  /*
-  pagination(){
-    return this.http.get("http://localhost:2500/api/libros/")
-  }
-  */
-
-/*
-  getLibrosStream(){
-    return this.libros$.asObservable()
-  }
-*/
-
-
-/*
-  getAllLibros(){
-    return this.httpClient.get("http://localhost:2500/api/libros/")
-  }
-  */
-
-/*
-//opcion 2
-pagination(page: number, pageSize: number): Observable<Libros[]> {
-  const startIndex = (page - 1) * pageSize;
-  const url = `${this.url}?_start=${startIndex}&_limit=${pageSize}`;
-  return this.http.get<Libros[]>(url); // Indicamos el tipo esperado en el get<>
-}
-*/

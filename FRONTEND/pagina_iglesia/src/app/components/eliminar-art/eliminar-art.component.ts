@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 //import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ShowModalComponent } from '../show-modal/show-modal.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-eliminar-art',
@@ -23,10 +24,14 @@ export class EliminarArtComponent implements OnInit {
   librosMostrar: any[] = [];
 
   selectedLibro: any;
-
-  allLibros: any;
+  allLibros: Libros[] = [];
   article: any;
 
+  constructor(
+    private libroService: LibroService,
+    private dialog:MatDialog,
+    private _snackBar: MatSnackBar
+  ) { } //suscripcion al servicio
 
   
 
@@ -36,19 +41,7 @@ export class EliminarArtComponent implements OnInit {
     })
   }
 
-  constructor(
-    private libroService: LibroService,
-    private dialog:MatDialog,
-    private _snackBar: MatSnackBar
-  ) { } //suscripcion al servicio
-
-  
-/*
-  ngOnInit(): void {
-    this.allLibros = []
-    this.getAllLibros()
-  }
-*/ 
+   
 ngOnInit(): void {
   this.libroService.getLibro();//llama al metodo getLibro del servicio
   this.libroService.getLibrosStream().subscribe((libros: Libros[]) => {
@@ -72,36 +65,40 @@ ngOnInit(): void {
     });
   }
 
+  confirmDelete(libro: Libros) {
+    const dialogRef = this.dialog.open(ShowModalComponent, {
+      data: {
+        message: `¿Está seguro de que desea eliminar el libro "${libro.nameBook}"?`
+      }
+    });
+    // Maneja la respuesta después de cerrar el modal
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteArticulo(libro);
+      }
+    });
+  }
+
+  deleteArticulo(libro: Libros) {
+    this.libroService.deleteArticulo(libro.nameBook).subscribe({
+      next: () => {
+        this.libros = this.libros.filter(item => item.nameBook !== libro.nameBook);
+        this._snackBar.open('Artículo eliminado', '', {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
+      },
+      error: (err) => {
+        console.error('Error al eliminar el libro:', err);
+        this._snackBar.open('Error al eliminar el artículo', '', {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
+      }
+    });
+  }
   
 
-  deleteArticulo(libro: any) {
-    console.log(this.libro);
-
-    this.libroService.deleteArticulo(libro.nameBook).subscribe(()=>{
-    this.allLibros = this.allLibros.filter((item: any) => item.nameBook !== libro.nameBook);
-    })
-    this._snackBar.open('Artículo eliminado', '', {
-      duration: 1500,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom'
-    })
-  }
-
-
 }
-
-/* 
-deleteArticulo(libro: any) {
-    console.log(this.libro);
-
-    this.libroService.deleteArticulo(libro._id).subscribe(()=>{
-    this.allLibros = this.allLibros.filter((item: any) => item._id !== libro._id);
-    })
-    this._snackBar.open('Inmueble eliminado', '', {
-      duration: 1500,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom'
-    })
-  }
-
-*/

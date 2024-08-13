@@ -1,3 +1,13 @@
+<h1 mat-dialog-title>Confirmar Eliminación</h1>
+<div mat-dialog-content>
+  <p>{{ data.message }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cerrarModal()">Cancelar</button>
+  <button mat-button (click)="confirmar()" color="warn">Eliminar</button>
+</div>
+
+
 <!-- 
  
     <div class="contenido-img">

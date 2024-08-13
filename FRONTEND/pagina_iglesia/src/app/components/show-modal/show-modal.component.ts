@@ -13,11 +13,17 @@ export class ShowModalComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
+  ngOnInit(): void {
+  }
+
   cerrarModal(): void {
     this.dialogRef.close();
   }
 
-  ngOnInit(): void {
+  confirmar(): void {
+    // Puedes retornar 'true' o cualquier otro valor si se confirma la acción.
+    this.dialogRef.close(true);
   }
+
 
 }
