@@ -1,7 +1,6 @@
 # Utiliza una imagen base oficial de Node.js
 FROM node:lts-alpine
 
-#Intentando forzar cambios | Dockerfile
 
 # Establece el directorio de trabajo en el contenedor
 WORKDIR /IGLESIABAUTISTAREFORMADA
@@ -19,4 +18,4 @@ COPY . .
 EXPOSE 2500
 
 # Define el comando para ejecutar la aplicación
-CMD ["npx", "nodemon", "index.js"]
+CMD ["npx", "node", "index.js"]
