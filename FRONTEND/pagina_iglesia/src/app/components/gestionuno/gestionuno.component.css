@@ -1,3 +1,12 @@
+.contacto-formulario {
+  background: linear-gradient(25deg, transparent, rgb(0, 0, 0), transparent);
+}
+
+.formulario {
+  background: linear-gradient(25deg, transparent, rgb(49, 55, 58), transparent);
+  margin-top: 1%;
+}
+
 .form{
   text-align: center;
 }
@@ -6,12 +15,16 @@ body{
 }
 /*formulario nuevo*/
 .formulario h2 {
-margin-bottom: 30px;
-font-size: 2.8rem;
+  margin-bottom: 30px;
+  font-size: 2.8rem;
+  color: #ffffff;
 }
 .grupo-formulario .title_campos {
-font-size: 1em;
-font-weight: 500;
+  font-size: 1em;
+  font-weight: 500;
+}
+.grupo-formulario .label_title {
+  color: #ffffff;
 }
 .grupo-formulario .campo-escritura {
 font-size: 1rem;
@@ -24,7 +37,7 @@ color: black;
 }
 .grupo-formulario {
 margin-bottom: 20px;
-color: rgb(121, 6, 58)
+color: rgb(250, 250, 250)
 }
 .grupo-formulario label {
 display: block;
@@ -40,83 +53,85 @@ textarea::placeholder {
   height: 150px;
   font-size: 1.2rem;
   background-color: transparent;
-  color: #d30000; 
+  color: #ffffff; 
   border: 1px solid;
   border-radius: 5px;
 }
 
 .boton-enviar:hover {
-background-color: #2aba49;
-transform: scale(1.1);
-color:rgb(0, 0, 0);
+  background-color: rgb(74, 158, 5);
+  transform: scale(1.1);
+  color:rgb(0, 0, 0);
 }
 .boton_eliminar, .boton-enviar,
 .ver-articulo-creado {
-width: 40%;
-padding: 10px;
-font-size: 1rem;
-font-weight: bold;
-color:rgb(179, 178, 130);
-background-color: #02734A;
-transition: 1s all;
-cursor:pointer;
-text-decoration: none;
-border-radius: 5px;
+  width: 40%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color:rgb(169, 168, 94);
+  background: linear-gradient(25deg, transparent, rgb(49, 55, 58), transparent);
+  transition: 1s all;
+  cursor:pointer;
+  text-decoration: none;
+  border-radius: 5px;
 }
 .boton_eliminar:hover {
-background-color: rgb(158, 5, 5);
-transform: scale(1.1);
-color:rgb(9, 5, 5);
+  background-color: rgb(158, 5, 5);
+  transform: scale(1.1);
+  color:rgb(9, 5, 5);
 }
 .ver-articulo-creado:hover {
 background-color: rgb(74, 158, 5);
 color: black;
 }
+
+/*responsive*/
 @media screen and (max-width: 1024px) {
-.contacto {
-  padding-top: 30%;
-}
-.formulario {
-  width: 90%;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
-}
-.formulario h2 {
-  margin-bottom: 20px;
-  font-size: 1.6rem;
-}
-.grupo-formulario .title_campos {
-  font-size: 0.8rem;
-}
-.boton-enviar {
-  color:rgb(9, 6, 6);
-}
-.label_title::placeholder {
-  font-size: 0.9rem;
-}
-.grupo-formulario .campo-escritura {/*letras de selecionar img*/
-  font-size: 0.8rem;
-}
-.botones .boton-enviar,
-.boton_eliminar, .ver-articulo-creado {
-  width: 40%;
-  padding: 10px 2;
-  font-size: 0.8rem;
-  color:rgb(9, 6, 6);
-  background-color: #02734A;
-  border-radius: 5px;
-}
-.botones .boton_eliminar {
-  background: rgb(199, 1, 1);
-}
-.campo-escritura_area::placeholder {
-  font-size: 0.9rem;
-}
-.grupo-formulario .campo-escritura_area {
-  font-size: 1.2em;
-}
-.grupo-formulario textarea {
-  width: 100%;
-  height: 100px;
-  font-size: 1rem;
-}
+  .contacto {
+    padding-top: 30%;
+  }
+  .formulario {
+    margin-top: 20%;
+    width: 90%;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+  }
+  .formulario h2 {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+  }
+  .grupo-formulario .title_campos {
+    font-size: 0.8rem;
+  }
+  .boton-enviar {
+    color:rgb(9, 6, 6);
+  }
+  .label_title::placeholder {
+    font-size: 0.9rem;
+  }
+  .grupo-formulario .campo-escritura {/*letras de selecionar img*/
+    font-size: 0.8rem;
+  }
+  .botones .boton-enviar,
+  .boton_eliminar, .ver-articulo-creado {
+    width: 40%;
+    padding: 10px 2;
+    font-size: 0.8rem;
+    color:rgb(9, 6, 6);
+    border-radius: 5px;
+  }
+  .botones .boton_eliminar {
+    background: rgb(205, 127, 127);
+  }
+  .campo-escritura_area::placeholder {
+    font-size: 0.9rem;
+  }
+  .grupo-formulario .campo-escritura_area {
+    font-size: 1.2em;
+  }
+  .grupo-formulario textarea {
+    width: 100%;
+    height: 100px;
+    font-size: 1rem;
+  }
 }
