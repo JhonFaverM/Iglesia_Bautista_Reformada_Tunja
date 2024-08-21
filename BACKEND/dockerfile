@@ -1,7 +1,7 @@
 # Utiliza una imagen base oficial de Node.js
 FROM node:lts-alpine
 
-#Intentando forzar cambios
+#Intentando forzar cambios | Dockerfile
 
 # Establece el directorio de trabajo en el contenedor
 WORKDIR /IGLESIABAUTISTAREFORMADA

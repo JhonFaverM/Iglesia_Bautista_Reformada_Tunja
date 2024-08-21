@@ -1,9 +1,5 @@
 const dotenv = require("dotenv").config();
-console.log("MONGO_HOST:", process.env.MONGO_HOST);
-console.log("MONGO_USER:", process.env.MONGO_USER);
-console.log("MONGO_PASSWORD:", process.env.MONGO_PASSWORD);
-console.log("MONGO_PORT:", process.env.MONGO_PORT);
-console.log("MONGO_DATABASE:", process.env.MONGO_DATABASE);
+
 
 const express = require("express");
 const app = express();
