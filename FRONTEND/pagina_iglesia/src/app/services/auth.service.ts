@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private httpClient: HttpClient, private routerService: Router) { }
 
   loginUser(user: any){
-    return this.httpClient.post("http://localhost:2500/administradores/login",user,{headers: {"Content-Type": "application/json"} })
+    return this.httpClient.post("https://iglesia-bautista-reformada-tunja-2.onrender.com/administradores/login",user,{headers: {"Content-Type": "application/json"} })
   }
 
   isLoggedIn(): boolean {

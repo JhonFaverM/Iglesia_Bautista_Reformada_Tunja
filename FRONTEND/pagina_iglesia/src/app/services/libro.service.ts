@@ -10,7 +10,7 @@ import { Libros } from '../models/libros';
 })
 export class LibroService {
 
-  readonly url = "http://localhost:2500/api/libros/";
+  readonly url = "https://iglesia-bautista-reformada-tunja-2.onrender.com/api/libros/";
   imagenes: Libros[] = [];
   libros$ = new Subject<Libros[]>();
 
@@ -22,7 +22,7 @@ export class LibroService {
   }
 
 paginationLibros(){
-  return this.http.get("http://localhost:2500/api/pagination")
+  return this.http.get("https://iglesia-bautista-reformada-tunja-2.onrender.com/api/pagination")
 }
 
 deleteArticulo(nameBook: string): Observable<void> {

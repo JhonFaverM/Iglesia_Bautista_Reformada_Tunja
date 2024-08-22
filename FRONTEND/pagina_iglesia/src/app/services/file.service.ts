@@ -9,7 +9,7 @@ import { Files } from '../models/files';
 })
 export class FileService {
 
-  readonly url = "http://localhost:2500/api/images/";
+  readonly url = "https://iglesia-bautista-reformada-tunja-2.onrender.com/api/images/";
   imagenes: Files[] = [];
   files$ = new Subject<Files[]>();
 

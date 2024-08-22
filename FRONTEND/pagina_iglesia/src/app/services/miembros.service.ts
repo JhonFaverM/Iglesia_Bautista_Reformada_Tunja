@@ -8,7 +8,7 @@ import { Miembros } from '../models/miembros';
 })
 export class MiembrosService {
 
-  readonly url = 'http://localhost:2500/api/miembros';
+  readonly url = 'https://iglesia-bautista-reformada-tunja-2.onrender.com/api/miembros';
   miembros: Miembros[] = [];
   miembros$ = new Subject<Miembros[]>();
   httpClient: any;
@@ -17,7 +17,7 @@ export class MiembrosService {
   constructor(private http: HttpClient) { }
 
   getAllMiembros(){
-    return this.httpClient.get("http://localhost:2500/api/miembros");
+    return this.httpClient.get("https://iglesia-bautista-reformada-tunja-2.onrender.com/api/miembros");
   }
 
   //Solicitud que trae los libros y los pasa a fundamentos
