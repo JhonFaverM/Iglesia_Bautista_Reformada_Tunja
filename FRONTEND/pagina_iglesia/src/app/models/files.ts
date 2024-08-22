@@ -7,14 +7,3 @@ export interface Files {
     name_foto: string;
     imageRutas: string[];
 }
-
-
-/*
-export interface Libros {
-    _id: string;
-    nameBook: string;
-    article: string;
-    bookRutas: string[];
-}
-
-*/

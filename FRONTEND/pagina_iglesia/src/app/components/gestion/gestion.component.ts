@@ -19,17 +19,6 @@ export class GestionComponent implements OnInit {
 
   libros: Libros[] = []; 
 
-
-  
-/*
-  getAllLibros(){
-    this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
-      this.allLibros = libros
-    }) 
-  }
-  */
-
-
   form!: FormGroup;
   file!: Files; 
   

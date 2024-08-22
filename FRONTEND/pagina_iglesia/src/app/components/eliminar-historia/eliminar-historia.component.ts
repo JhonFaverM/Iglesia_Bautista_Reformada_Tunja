@@ -52,12 +52,3 @@ export class EliminarHistoriaComponent implements OnInit {
   }
 
 }
-
-/*
-
-export interface Files {
-    _id: string;
-    name_foto: string;
-    imageRutas: string[];
-}
-*/

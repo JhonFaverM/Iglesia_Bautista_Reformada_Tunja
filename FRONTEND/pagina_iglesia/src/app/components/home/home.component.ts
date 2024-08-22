@@ -29,14 +29,4 @@ export class HomeComponent implements OnInit {
     window.open(whatsappURL, '_blank');
   }
 
-  /*abrirModal(descripcion: string): void {
-    const dialogRef: MatDialogRef<DescripcionModalComponent> = this.dialog.open(DescripcionModalComponent, {
-      width: '500px',
-      data: { descripcion: descripcion }
-    });
-
-    dialogRef.afterClosed().subscribe(() => {
-      // Código a ejecutar después de cerrar el modal (si es necesario)
-    });
-  }*/
 }
