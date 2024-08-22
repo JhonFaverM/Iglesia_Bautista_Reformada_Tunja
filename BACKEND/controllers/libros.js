@@ -40,7 +40,7 @@ postLibro = async (req, res)=>{
    const bookRutas = []; //http://localhost:${process.env.PORT}/images/${req.file.filename}; //npmbre varable coincide con el del modelo
    req.files.forEach(element => {
        console.log(element.filename)
-       bookRutas.push(`http://localhost:${process.env.APP_PORT}/libros/${element.filename}`); //npmbre de la carpeta donde guardamos las imagenes (libros)
+       bookRutas.push(`https://iglesia-bautista-reformada-tunja-2.onrender.com:${process.env.APP_PORT}/libros/${element.filename}`); //npmbre de la carpeta donde guardamos las imagenes (libros)
    });
    console.log(bookRutas)
    const libro = new libros({

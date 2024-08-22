@@ -23,8 +23,3 @@ routes.delete("/nameBook/:nameBook", verificarToken, libroController.deleteArtic
 
 
 module.exports = routes
-
-
-
-
-

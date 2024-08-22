@@ -37,3 +37,7 @@ http://localhost:2500/api/libros
 
 # Metodo para eliminar
 http://localhost:2500/api/libros/nameBook/belleza
+
+# Para ejecutar y construir docker
+docker-compose up --build
+
