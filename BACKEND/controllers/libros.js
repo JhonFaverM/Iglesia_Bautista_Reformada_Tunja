@@ -23,24 +23,23 @@ pagination = async (req, res) => {
        console.error(error);
        res.status(500).json({ message: "Error al paginar los libros" });
    }
-   console.log('desde pagination')
 };
 
 
 /*Funcion que trae la ruta de imagenes libros */
 getImages = async (req, res)=>{
-   console.log(req.asesor)
    const rutasImages = await libros.find();
    res.status(200).json(rutasImages);
 }
 
+
 postLibro = async (req, res)=>{
    console.log("req.file: " +req.files)
-   const {nameBook, article} = req.body;  //desestructurar
-   const bookRutas = []; //http://localhost:${process.env.PORT}/images/${req.file.filename}; //npmbre varable coincide con el del modelo
+   const {nameBook, article} = req.body;
+   const bookRutas = [];
    req.files.forEach(element => {
        console.log(element.filename)
-       bookRutas.push(`https://iglesia-bautista-reformada-tunja-2.onrender.com:${process.env.APP_PORT}/libros/${element.filename}`); //npmbre de la carpeta donde guardamos las imagenes (libros)
+       bookRutas.push(`https://iglesia-bautista-reformada-tunja-2.onrender.com:${process.env.APP_PORT}/libros/${element.filename}`);
    });
    console.log(bookRutas)
    const libro = new libros({
