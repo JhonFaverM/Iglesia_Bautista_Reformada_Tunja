@@ -39,7 +39,7 @@ postLibro = async (req, res)=>{
    const bookRutas = [];
    req.files.forEach(element => {
        console.log(element.filename)
-       bookRutas.push(`https://iglesia-bautista-reformada-tunja-2.onrender.com:${process.env.APP_PORT}/libros/${element.filename}`);
+       bookRutas.push(`https://iglesia-bautista-reformada-tunja-2.onrender.com/libros/${element.filename}`);
    });
    console.log(bookRutas)
    const libro = new libros({
