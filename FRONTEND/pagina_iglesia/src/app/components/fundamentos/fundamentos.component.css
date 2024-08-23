@@ -3,8 +3,6 @@
     font-size: 2rem;
     color: rgb(45, 87, 62);
 }
-
-
 /* IMAGE */
 .custom-card {
   display: flex;
@@ -12,14 +10,14 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  max-width: 300px; /* Ajusta este valor según sea necesario */
-  margin-bottom: 20px; /* Espaciado entre tarjetas */
+  max-width: 300px;
+  margin-bottom: 20px;
 }
   
 .title-container {
   width: 100%;
   text-align: center;
-  margin-bottom: 10px; /* Espacio entre el título y la imagen */
+  margin-bottom: 10px;
 }
 
 .title-num1 {
@@ -34,14 +32,14 @@
 }
 
 .title-num1::first-letter {
-  text-transform: uppercase; /* Convierte la primera letra a mayúscula */
+  text-transform: uppercase;
 }
 
 .image-container {
   position: relative;
   width: 100%;
-  max-width: 250px; /* Tamaño máximo del contenedor */
-  height: 200px; /* Altura fija para todas las imágenes */
+  max-width: 250px;
+  height: 200px;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -109,14 +107,13 @@
 }
 
 .custom-modal-image-class {
-  width: 100%; /* Ajusta el ancho según sea necesario */
-  max-width: 600px; /* Tamaño máximo del contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
-  object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin distorsión */
-  margin: 0 auto; /* Centra la imagen dentro del modal */
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
 }
 
-  
   /*========MEDIA QUERIES (SMALL DEVICES)========*/
 @media screen and (max-width: 500px) {
   .titulo-articulos-recomendados {
@@ -133,7 +130,7 @@
   }
 
   .image-container {
-    width: 250px; /* Ajusta según sea necesario */
+    width: 250px;
     height: 80%;
   }
   .custom-modal-image-class {
@@ -197,13 +194,12 @@
     white-space: pre-wrap;
     word-wrap: break-word;
   }
-
   /* Tamaño IMG */ 
   .contenido-img {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center;     /* Centra verticalmente */
-    height: 100%;            /* Asegura que el contenedor tenga altura */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
 
   .custom-modal-image-class {
@@ -211,25 +207,23 @@
     max-height: 20%;
     object-fit: cover;
   }
-  
-
   /* PAGINATION */
   .custom-page-link {
-    color: #02734A !important; /* Cambia el color del texto */
-    border-color: #02734A !important; /* Cambia el color del borde */
-    transition: background-color red 0.13s, color 0.13s; /* Añade una transición suave */
+    color: #02734A !important;
+    border-color: #02734A !important;
+    transition: background-color red 0.13s, color 0.13s;
   }
   
   .page-link:hover {
     background: rgb(180, 180, 0);
     color: #000000;
-    border-color: transparent; /* Cambia el color del texto al pasar el mouse */
+    border-color: transparent;
   }
   
   .page-item.active .custom-page-link {
-    background-color: #02734A !important; /* Cambia el color de fondo del botón activo */
-    border-color: #730209 !important; /* Cambia el color del borde del botón activo */
-    color: rgb(222, 235, 46) !important; /* Cambia el color del texto del botón activo */
+    background-color: #02734A !important;
+    border-color: #730209 !important;
+    color: rgb(222, 235, 46) !important;
     transition: transform 0.3s ease-in-out;
   }
 

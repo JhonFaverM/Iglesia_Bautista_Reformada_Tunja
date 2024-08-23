@@ -11,22 +11,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class GestionunoComponent implements OnInit {
 
-  allLibros: any;
-  libros: Libros[] = [];
-
-
-  getAllLibros(){
-    this.libroService.getAllLibros().subscribe((libros: Libros[])=>{
-      this.allLibros = libros
-    }) 
-    
-  }
-
-  pdf!:FormGroup;
-  libro!: Libros;
+  allLibros: Libros[] = [];
+  pdf!: FormGroup;
   images!: FileList;
-  articulo!:FormGroup;
-  
+
   constructor(
     private libroService: LibroService,
     private _snackBar: MatSnackBar) {}
@@ -36,24 +24,46 @@ export class GestionunoComponent implements OnInit {
       nameBook: new FormControl(null),
       article: new FormControl(null),
       images: new FormControl(null)
-    })
-  }
- 
+    });
 
-
-  onChangeInput(event: Event){
-    this.images = (event.target as HTMLInputElement).files as FileList 
-
+    this.getAllLibros();  // Cargar los libros al iniciar el componente
   }
 
-  
-  createLibro(){
-    this.libroService.postLibro(this.pdf.value.nameBook, this.pdf.value.article, this.images);
+  getAllLibros(): void {
+    this.libroService.getAllLibros().subscribe({
+      next: (libros: Libros[]) => this.allLibros = libros,
+      error: () => this._snackBar.open('Error al cargar los libros', '', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom'
+      })
+    });
+  }
+
+  onChangeInput(event: Event): void {
+    this.images = (event.target as HTMLInputElement).files as FileList;
+  }
+
+  createLibro(): void {
+    this.libroService.postLibro(this.pdf.value.nameBook, this.pdf.value.article, this.images)
+      .subscribe({
+        next: (response: Libros) => {
+          this.allLibros.push(response);
+          this._snackBar.open('Creaste un nuevo Artículo', '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom'
+          });
+        },
+        error: () => {
+          this._snackBar.open('Error al crear el artículo', '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom'
+          });
+        }
+      });
+
     this.pdf.reset();
-    this._snackBar.open('Creaste un nuevo Artículo', '', {
-      duration: 2000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom'
-    })
   }
 }
