@@ -114,6 +114,58 @@ iframe {
   border: 1px solid #03251b;
   transition: var(--transition);
 }
+/* FUNDAMENTOS*/
+ /*========MEDIA QUERIES (SMALL DEVICES)========*/
+ @media screen and (max-width: 700px) {
+  .titulo-articulos-recomendados {
+    padding-top: 80px;
+    font-size: 1.1rem;
+    color: rgb(18, 32, 17);
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .parrafo-article {
+    font-family: sans-serif;
+    font-size: 0.8rem;
+  }
+
+  .image-container {
+    width: 250px;
+    height: 80%;
+  }
+  .custom-modal-image-class {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+}
+.btn-light {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(169, 190, 190);
+  color: rgb(45, 87, 62);
+}
+/* PAGINATION */
+.custom-page-link {
+  color: #02734A !important;
+  border-color: #02734A !important;
+  transition: background-color red 0.13s, color 0.13s;
+}
+.page-link:hover {
+  background: rgb(180, 180, 0);
+  color: #000000;
+  border-color: transparent;
+}
+.page-item.active .custom-page-link {
+  background-color: #02734A !important;
+  border-color: #730209 !important;
+  color: rgb(222, 235, 46) !important;
+  transition: transform 0.3s ease-in-out;
+}
+.custom-page-link:hover {
+  transform: scale(1.1);
+
+}
 @media screen and (max-width: 1024px) {
   .titulo-horario h1 {
     font-size: 1.6rem;
