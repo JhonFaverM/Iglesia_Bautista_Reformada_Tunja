@@ -30,7 +30,7 @@ export class AuthService {
 
   logoutUser() {
     localStorage.removeItem('token');
-    this.routerService.navigate(['']);
+    this.routerService.navigate(['/login']);
   }
 
   private handleError(error: any): Observable<never> {
