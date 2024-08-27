@@ -16,14 +16,15 @@ const administradorSchema = new Schema({
     }
 });
 
-administradorSchema.methods.generarJWT = () => {
+administradorSchema.methods.generarJWT = function () {
     return jwt.sign({
         _id: this._id, 
         usuario: this.usuario, 
-        nombre: this.nombre },"iglesia-tunja");
-        //nombre cualquiera clave para verificar en middleware node
+        nombre: this.nombre },"iglesia-tunja", {
+        expiresIn: "10m"
+    })
+        //iglesia-tunja == nombre clave para verificar en middleware node    
 }
 
 
 module.exports = model("Administrador", administradorSchema,"administradores")
-//administradores = nombre de la coleccion en la base de datos

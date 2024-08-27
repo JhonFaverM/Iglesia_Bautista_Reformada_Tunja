@@ -1,5 +1,3 @@
-//ver video en 01/27 3:02
-
 const jwt = require("jsonwebtoken");
 
 const verificarToken = (req, res, next) => {
@@ -9,7 +7,7 @@ const verificarToken = (req, res, next) => {
     if (!token) res.send({ "msg": "No hay ningún token en header" })
     try {
         let tokenPayload = jwt.verify(token, "iglesia-tunja")   // iglesia-tunja == clave secreta
-        req.administrador = tokenPayload   //asesor es nombre cualquier, guarda lo que decodifica
+        req.administrador = tokenPayload
         next()
     } catch (err) {
         res.send({ "msg": "Token no es correcto!" })

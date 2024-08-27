@@ -43,7 +43,7 @@ app.use('/api/pdfs', pdfsRoutes);
 app.use('/miembros', express.static('./miembros'));
 app.use('/api/miembros', miembrosRoutes);
 
-app.use('/administradores', administradores);//la segunda admis es una variable
+app.use('/administradores', administradores);
 
 
 app.listen(port,()=>{
