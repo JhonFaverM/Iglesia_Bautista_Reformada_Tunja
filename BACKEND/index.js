@@ -13,10 +13,8 @@ const librosRoutes = require("./routes/libros");
 const miembrosRoutes = require("./routes/miembros");
 
 const {administradores} = require("./routes/administradores");//desestructurar
-//const { libros } = require("./routes/libros")
 
 
-const pdfsRoutes = require("./routes/pdfs");
 const cors = require("cors");
 
 
@@ -25,7 +23,6 @@ app.use(cors());
 app.use(express.urlencoded({extended:false}));
 
 
-//app.use('/libros', libros)
 
 app.use('/images', express.static('./images'));  //muestra file planos
 app.use('/api/images', imagesRoutes);   // app imagemultiples
@@ -34,11 +31,6 @@ app.use('/api/pagination', librosRoutes)
 
 app.use('/libros', express.static('./libros'));
 app.use('/api/libros', librosRoutes);   // app articulos
-
-
-
-app.use('/pdfs', express.static('./pdfs')); //static text.txt
-app.use('/api/pdfs', pdfsRoutes);
 
 app.use('/miembros', express.static('./miembros'));
 app.use('/api/miembros', miembrosRoutes);
