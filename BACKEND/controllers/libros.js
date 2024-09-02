@@ -1,5 +1,6 @@
 const libros = require("../models/libro");
 const mongoosePaginate = require('mongoose-paginate-v2');
+const sharp = require('sharp');
 
 
 
@@ -33,24 +34,41 @@ getImages = async (req, res)=>{
 }
 
 
-postLibro = async (req, res)=>{
-   console.log("req.file: " +req.files)
-   const {nameBook, article} = req.body;
-   const bookRutas = [];
-   req.files.forEach(element => {
-       console.log(element.filename)
-       bookRutas.push(`https://iglesia-bautista-reformada-tunja-2.onrender.com/libros/${element.filename}`);
-   });
-   console.log(bookRutas)
-   const libro = new libros({
-       nameBook,
-       article,
-       bookRutas
-   });
-   const libroCreado = await libro.save();
-   res.status(200).json({
-       ...libroCreado._doc //... = spread operator//
-   })
+postLibro = async (req, res) => {
+    try {
+        if (!req.files || req.files.length === 0) {
+            return res.status(400).json({ message: "No se subió ninguna imagen o el tipo de archivo es inválido. Solo se permiten imágenes (jpg, png, jpeg)." });
+        }
+
+        const { nameBook, article } = req.body;
+        const bookRutas = [];
+        
+        for (const file of req.files) {
+            // Comprimir la imagen
+            const compressedFilePath = `libros/compressed_${file.filename}`;
+            await sharp(file.path)
+                .resize(250) // Redimensiona la imagen a un ancho máximo de 250px
+                .jpeg({ quality: 70 }) // Comprime la imagen con un 70% de calidad
+                .toFile(compressedFilePath);
+
+            // Guardar la ruta de la imagen comprimida
+            bookRutas.push(`https://iglesia-bautista-reformada-tunja-2.onrender.com/${compressedFilePath}`);
+        }
+
+        const libro = new libros({
+            nameBook,
+            article,
+            bookRutas
+        });
+
+        const libroCreado = await libro.save();
+        res.status(200).json({
+            ...libroCreado._doc // Spread operator
+        });
+    } catch (error) {
+        console.error('Error al subir el libro:', error);
+        res.status(500).json({ message: "Ocurrió un error al subir el libro." });
+    }
 }
 
 /* Function to delete a book */
