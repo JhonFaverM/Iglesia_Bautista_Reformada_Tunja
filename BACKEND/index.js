@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cors({
     origin: 'https://iglesia-bautista-reformada-tunja-3.onrender.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type']
 }));
 
 app.use(express.urlencoded({extended:false}));

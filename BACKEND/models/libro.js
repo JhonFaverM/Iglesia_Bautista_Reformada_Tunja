@@ -24,7 +24,3 @@ const Libro = mongoose.model('Libro', librosSchema);
 
 
 module.exports = mongoose.model('Libros', librosSchema, "libros");
-
-
-
-
