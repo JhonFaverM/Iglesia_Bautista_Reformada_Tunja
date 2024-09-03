@@ -15,13 +15,11 @@ export class AuthService {
   loginUser(user: any): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/administradores/login`, user, {
       headers: { 'Content-Type': 'application/json' }
-    }).pipe(
-      catchError(this.handleError)
-    );
+    })
   }
 
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
+  isLoggedIn() {
+    return localStorage.getItem('token')? true:false;
   }
 
   getToken() {
@@ -33,8 +31,5 @@ export class AuthService {
     this.routerService.navigate(['/home']);
   }
 
-  private handleError(error: any): Observable<never> {
-    console.error('An error occurred', error);
-    return throwError(error);
-  }
+  
 }

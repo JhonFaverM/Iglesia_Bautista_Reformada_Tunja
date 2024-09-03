@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Libros } from 'src/app/models/libros';
 import { LibroService } from 'src/app/services/libro.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gestionuno',
@@ -49,19 +50,19 @@ export class GestionunoComponent implements OnInit {
       .subscribe({
         next: (response: Libros) => {
           this.allLibros.push(response);
-          this._snackBar.open('Creaste un nuevo Artículo', '', {
-            duration: 2000,
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom'
+          Swal.fire({
+            title: 'Éxitoso!!',
+            text: 'Creaste un nuevo Artículo',
+            icon:'success',
+            confirmButtonText: 'Aceptar'
           });
         },
-        error: () => {
-          this._snackBar.open('Error al crear el artículo', '', {
-            duration: 2000,
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom'
-          });
-        }
+        error: () => Swal.fire({ 
+          title: 'Error!!',
+          text: 'Error al crear el Artículo',
+          icon:'error',
+          confirmButtonText: 'Aceptar'
+        })
       });
 
     this.pdf.reset();
