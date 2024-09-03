@@ -24,7 +24,7 @@ export class AppComponent {
     this.timeout = setTimeout(() => {
       this.authService.logoutUser();
       alert('Tu sesión ha expirado debido a inactividad.');
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
     }, 10 * 60 * 1000); // 10 minutos de inactividad
   }
 
