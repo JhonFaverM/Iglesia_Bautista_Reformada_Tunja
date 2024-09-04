@@ -30,14 +30,14 @@ const login = (req, res)=>{
                         res.send({ "msg": err })
                         break;
                     case(user == null):
-                        res.send({"msg":"No se encuentra el usuario"})
+                        res.send({"msg":"Usuario no existe!!"})
                         break;
                     case(user.password == req.body.password):
                         let token = user.generarJWT()
                         res.send({"msg":"Se puede loggear",token})
                         break;
                     case (user?.password != req.body.password):
-                        res.send({ "msg": "La contraseña es erronea" })
+                        res.send({ "msg": "La contraseña es incorrecta!!" })
                         break;
                                     
                 }
@@ -46,7 +46,7 @@ const login = (req, res)=>{
         
     })
     :
-    res.send({"msg":"Te falta algun dato (usuario o contraseña)"});
+    res.send({"msg":"Falta algun dato (usuario o contraseña)"});
 }
 
 
