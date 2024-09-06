@@ -1,34 +1,35 @@
-const multer = require("multer");  // multer es como un midleware
+const multer = require('multer');
+const multerS3 = require('multer-s3');
+const AWS = require('aws-sdk');
 
-//Funcion para almacenar en disco local
-/*const diskStorage = multer.diskStorage({  //funcion para guardar la imagen (diskStorage)
-    destination: (req, file, callback)=>{
-        callback(null, 'libros');   //nombre de la carpeta /ruta
-    },
-    filename: (req, file, callback)=>{
-        const fileName = file.originalname;
-        callback(null, fileName);   // guarda el archivo con el nombre original
-    }
+// Configuración de AWS S3
+const s3 = new AWS.S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    region: process.env.AWS_REGION,
 });
-*/
-
 
 // Filtro de archivos para aceptar solo imágenes
 const fileFilter = (req, file, callback) => {
-    // Lista de tipos MIME permitidos
     const allowTypes = ['image/jpg', 'image/png', 'image/jpeg'];
-
-    // Verifica si el tipo MIME del archivo está en la lista de tipos permitidos
     if (allowTypes.includes(file.mimetype)) {
-        callback(null, true); // Acepta el archivo
+        callback(null, true);  // Acepta el archivo
     } else {
-        callback(new Error('El tipo de archivo no es válido. Solo se permiten imágenes (jpg, png, jpeg).'), false); // Rechaza el archivo
+        callback(new Error('El tipo de archivo no es válido. Solo se permiten imágenes (jpg, png, jpeg).'), false);  // Rechaza el archivo
     }
-}
+};
 
-let storageMultiple = multer({
-    fileFilter: fileFilter
-}).array('images');
+// Configuración de multer para S3
+const storageS3 = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: process.env.article-ibrt, // Nombre de tu bucket en S3
+        acl: 'public-read',  // Otorga permisos de lectura pública a los archivos
+        key: (req, file, cb) => {
+            cb(null, Date.now().toString() + '-' + file.originalname); // Asigna un nombre único al archivo
+        }
+    }),
+    fileFilter: fileFilter,
+}).array('images');  // Cambia 'images' si tu campo tiene otro nombre
 
-
-module.exports = {storageMultiple};
+module.exports = { storageS3 };
