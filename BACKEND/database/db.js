@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 const mongoUri = process.env.MONGO_SRV;
-//const username = process.env.MONGO_USER;
-//const password = process.env.MONGO_PASSWORD;
-//const host = process.env.MONGO_HOST;
-//const port = process.env.MONGO_PORT;
-//const dbName = process.env.MONGO_DATABASE;
+
 
 class DatabaseConexion {
   static instance;
@@ -20,7 +16,6 @@ class DatabaseConexion {
   async connect() {
     try {
       if (!this.isConnected) {
-        //const uri = `mongodb://${username}:${password}@${host}:${port}/${dbName}?authSource=admin`;
         console.log(`Intentando conectar a MongoDB en: ${mongoUri}`);
         mongoose.set('debug', true);
         await mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });

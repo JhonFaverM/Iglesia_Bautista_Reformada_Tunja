@@ -1,7 +1,7 @@
 const multer = require("multer");  // multer es como un midleware
 
-
-const diskStorage = multer.diskStorage({  //funcion para guardar la imagen (diskStorage)
+//Funcion para almacenar en disco local
+/*const diskStorage = multer.diskStorage({  //funcion para guardar la imagen (diskStorage)
     destination: (req, file, callback)=>{
         callback(null, 'libros');   //nombre de la carpeta /ruta
     },
@@ -10,6 +10,8 @@ const diskStorage = multer.diskStorage({  //funcion para guardar la imagen (disk
         callback(null, fileName);   // guarda el archivo con el nombre original
     }
 });
+*/
+
 
 // Filtro de archivos para aceptar solo imágenes
 const fileFilter = (req, file, callback) => {
@@ -24,7 +26,9 @@ const fileFilter = (req, file, callback) => {
     }
 }
 
-let storageMultiple = multer({storage: diskStorage, fileFilter: fileFilter}).array('images');
+let storageMultiple = multer({
+    fileFilter: fileFilter
+}).array('images');
 
 
 module.exports = {storageMultiple};

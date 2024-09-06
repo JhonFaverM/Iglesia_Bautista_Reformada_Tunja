@@ -1,7 +1,15 @@
 const libros = require("../models/libro");
 const mongoosePaginate = require('mongoose-paginate-v2');
+const AWS = require('aws-sdk');
+const fs = require('fs');
 const sharp = require('sharp');
 
+//Configurar el SDK de AWS
+const s3 = new AWS.S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    region: process.env.AWS_REGION
+});
 
 
 pagination = async (req, res) => {
@@ -45,20 +53,35 @@ postLibro = async (req, res) => {
         
         for (const file of req.files) {
             // Comprimir la imagen
-            const compressedFilePath = `libros/compressed_${file.filename}`;
-            await sharp(file.path)
+            const compressedBuffer = await sharp(file.buffer)
                 .resize(250) // Redimensiona la imagen a un ancho máximo de 250px
                 .jpeg({ quality: 70 }) // Comprime la imagen con un 70% de calidad
-                .toFile(compressedFilePath);
+                .toBuffer();
 
-            // Guardar la ruta de la imagen comprimida
-            bookRutas.push(`https://iglesia-bautista-reformada-tunja-2.onrender.com/${compressedFilePath}`);
+            // Leer el archivo comprimido
+            const fileContent = fs.readFileSync(compressedFilePath);
+
+            // Configurar los parametros para subir a S3
+            const params = {
+                Bucket: process.env.AWS_BUCKET_NAME,
+                Key: `libros/${Date.now()}_${file.originalname}`,  // Nombre unico para la imagen en el bucket
+                Body: compressedBuffer,
+                ContentType: 'image/jpeg',  // Tipo de archivo que se guarda
+                ACL: 'public-read'  // Permisos para que sea publica la URL
+            };
+
+            // Subir la imagen a S3
+            const s3Response = await s3.upload(params).promise();
+
+            // Guardar la URL de la imagen en el array bookRutas
+            bookRutas.push(uploadResult.Location);
         }
 
+        // Guardar el libro en MongoDB con las rutas de las imagenes en S3
         const libro = new libros({
             nameBook,
             article,
-            bookRutas
+            bookRutas   // URLs de las imagenes en S3
         });
 
         const libroCreado = await libro.save();
