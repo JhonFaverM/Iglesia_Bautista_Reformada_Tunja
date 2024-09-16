@@ -14,7 +14,7 @@ export class GestionunoComponent implements OnInit {
 
   allLibros: Libros[] = [];
   pdf!: FormGroup;
-  images!: FileList;
+  images: FileList | null = null;
 
   constructor(
     private libroService: LibroService,
@@ -46,25 +46,39 @@ export class GestionunoComponent implements OnInit {
   }
 
   createLibro(): void {
-    this.libroService.postLibro(this.pdf.value.nameBook, this.pdf.value.article, this.images)
-      .subscribe({
-        next: (response: Libros) => {
-          this.allLibros.push(response);
-          Swal.fire({
-            title: 'Éxitoso!!',
-            text: 'Creaste un nuevo Artículo',
-            icon:'success',
-            confirmButtonText: 'Aceptar'
-          });
-        },
-        error: () => Swal.fire({ 
-          title: 'Error!!',
-          text: 'Error al crear el Artículo',
-          icon:'error',
-          confirmButtonText: 'Aceptar'
-        })
-      });
+    const nameBook = this.pdf.value.nameBook;
+    const article = this.pdf.value.article;
 
-    this.pdf.reset();
+    // Verificar que no haya null antes de continuar
+    if (this.pdf.valid && nameBook && article && this.images && this.images.length > 0) {
+      this.libroService.postLibro(nameBook, article, this.images)
+        .subscribe({
+          next: (response: Libros) => {
+            this.allLibros.push(response);
+            Swal.fire({
+              title: 'Éxitoso!!',
+              text: 'Creaste un nuevo Artículo',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            });
+            this.pdf.reset();
+            this.images = null;  // Resetear imágenes después de enviar
+          },
+          error: () => Swal.fire({
+            title: 'Error!!',
+            text: 'Error al crear el Artículo',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          })
+        });
+    } else {
+      Swal.fire({
+        title: 'Error!!',
+        text: 'Por favor, completa todos los campos y selecciona una imagen.',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar'
+      });
+    }
   }
+  
 }
