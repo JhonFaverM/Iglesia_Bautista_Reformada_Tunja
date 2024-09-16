@@ -32,7 +32,7 @@ pagination = async (req, res) => {
     }
 };
 
-/*Funcion que trae la ruta de imágenes de libros */
+/*Funcion que trae la ruta de imagenes de libros */
 getImages = async (req, res) => {
     try {
         const rutasImages = await libros.find();
@@ -53,19 +53,13 @@ postLibro = async (req, res) => {
         const bookRutas = [];
 
         for (const file of req.files) {
-            // Comprimir la imagen
-            const compressedBuffer = await sharp(file.buffer)
-                .resize(250) // Redimensiona la imagen a un ancho máximo de 250px
-                .jpeg({ quality: 70 }) // Comprime la imagen con un 70% de calidad
-                .toBuffer();
-
-            // Configurar los parámetros para subir a S3
+            // Configurar los parametros para subir a S3
             const params = {
                 Bucket: process.env.AWS_BUCKET_NAME,
-                Key: `libros/${Date.now()}_${file.originalname}`,  // Nombre único para la imagen en el bucket
-                Body: compressedBuffer,
-                ContentType: 'image/jpeg',  // Tipo de archivo que se guarda
-                ACL: 'public-read'  // Permisos para que sea pública la URL
+                Key: `libros/${Date.now()}_${file.originalname}`,  // Nombre unico para la imagen en el bucket
+                Body: file.buffer,  // Usa directamente el buffer del archivo sin modificarlo
+                ContentType: file.mimetype,  // Tipo de archivo original
+                ACL: 'public-read'  // Permisos para que sea publica la URL
             };
 
             // Subir la imagen a S3
@@ -75,11 +69,11 @@ postLibro = async (req, res) => {
             bookRutas.push(s3Response.Location);
         }
 
-        // Guardar el libro en MongoDB con las rutas de las imágenes en S3
+        // Guardar el libro en MongoDB con las rutas de las imagenes en S3
         const libro = new libros({
             nameBook,
             article,
-            bookRutas   // URLs de las imágenes en S3
+            bookRutas   // URLs de las imagenes en S3
         });
 
         const libroCreado = await libro.save();
@@ -92,21 +86,40 @@ postLibro = async (req, res) => {
     }
 };
 
-/* Función para eliminar un libro */
-const deleteArticulo = async (req, res) => {
-    const nameBook = req.params.nameBook;
-    try {
-        const mongoResponse = await libros.deleteOne({ nameBook });
-        if (mongoResponse.deletedCount === 1) {
-            res.status(200).json({ message: "Documento eliminado correctamente" });
-        } else {
-            res.status(404).json({ message: "No se encontró ningún documento para eliminar" });
+/* eliminar las imagenes de S3 al mismo tiempo que se elimina un libro,
+    se usa la API de AWS para eliminar el archivo en S3 */
+    const deleteArticulo = async (req, res) => {
+        const nameBook = req.params.nameBook;
+        try {
+            // Buscar el libro antes de eliminar
+            const libro = await libros.findOne({ nameBook });
+    
+            if (!libro) {
+                return res.status(404).json({ message: "No se encontró ningún libro para eliminar" });
+            }
+    
+            // Eliminar las imagenes de S3
+            for (const ruta of libro.bookRutas) {
+                const params = {
+                    Bucket: process.env.AWS_BUCKET_NAME,
+                    Key: ruta.split('.com/')[1]  // Extrae la clave del objeto en S3 a partir de la URL
+                };
+                await s3.deleteObject(params).promise();
+            }
+    
+            // Eliminar el documento de MongoDB
+            const mongoResponse = await libros.deleteOne({ nameBook });
+            if (mongoResponse.deletedCount === 1) {
+                res.status(200).json({ message: "Documento y sus imágenes eliminados correctamente" });
+            } else {
+                res.status(404).json({ message: "No se encontró ningún documento para eliminar" });
+            }
+        } catch (error) {
+            console.error('Error al eliminar el documento:', error);
+            res.status(500).json({ message: "Error al eliminar el documento" });
         }
-    } catch (error) {
-        console.error('Error al eliminar el documento:', error);
-        res.status(500).json({ message: "Error al eliminar el documento" });
-    }
-};
+    };
+    
 
 module.exports = {
     deleteArticulo,
