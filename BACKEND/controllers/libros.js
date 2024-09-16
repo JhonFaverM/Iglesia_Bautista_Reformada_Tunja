@@ -1,13 +1,16 @@
 const libros = require("../models/libro");
 const mongoosePaginate = require('mongoose-paginate-v2');
-const AWS = require('aws-sdk');
-const sharp = require('sharp');
+//const AWS = require('aws-sdk');
+const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+const { DeleteObjectCommand } = require('@aws-sdk/client-s3');
 
 // Configurar el SDK de AWS
-const s3 = new AWS.S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION
+const s3 = new S3Client({
+    region: process.env.AWS_REGION,
+    credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    },
 });
 
 pagination = async (req, res) => {
@@ -45,6 +48,7 @@ getImages = async (req, res) => {
 
 postLibro = async (req, res) => {
     try {
+        console.log(req.body, req.files);
         if (!req.files || req.files.length === 0) {
             return res.status(400).json({ message: "No se subió ninguna imagen o el tipo de archivo es inválido. Solo se permiten imágenes (jpg, png, jpeg)." });
         }
@@ -54,16 +58,16 @@ postLibro = async (req, res) => {
 
         for (const file of req.files) {
             // Configurar los parametros para subir a S3
-            const params = {
+            const command = new PutObjectCommand({
                 Bucket: process.env.AWS_BUCKET_NAME,
                 Key: `libros/${Date.now()}_${file.originalname}`,  // Nombre unico para la imagen en el bucket
                 Body: file.buffer,  // Usa directamente el buffer del archivo sin modificarlo
                 ContentType: file.mimetype,  // Tipo de archivo original
                 ACL: 'public-read'  // Permisos para que sea publica la URL
-            };
+            });
 
             // Subir la imagen a S3
-            const s3Response = await s3.upload(params).promise();
+            const s3Response = await s3.send(command);
 
             // Guardar la URL de la imagen en el array bookRutas
             bookRutas.push(s3Response.Location);
@@ -104,7 +108,8 @@ postLibro = async (req, res) => {
                     Bucket: process.env.AWS_BUCKET_NAME,
                     Key: ruta.split('.com/')[1]  // Extrae la clave del objeto en S3 a partir de la URL
                 };
-                await s3.deleteObject(params).promise();
+                const deleteCommand = new DeleteObjectCommand(params);
+                await s3.send(deleteCommand);
             }
     
             // Eliminar el documento de MongoDB
