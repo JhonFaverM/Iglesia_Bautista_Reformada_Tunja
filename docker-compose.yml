@@ -5,8 +5,8 @@ services:
   backend:
     build: ./BACKEND
     container_name: backend-ibrt
-    environment:
-      - MONGO_SRV=${MONGO_SRV}
+    env_file:
+     - ./BACKEND/.env
     ports:
       - 2500:2500
     volumes:
@@ -20,23 +20,3 @@ services:
       - 80:80
     volumes:
       - ./FRONTEND/pagina_iglesia:/usr/share/nginx/html
-
-
-
-#version: '3.8'
-
-#services:
-
-#  backend:
-#    build: .
-#    container_name: backend-ibrt
-#    environment:
-#      - MONGO_SRV=${MONGO_SRV}
-#    ports:
-#      - 2500:2500
-#    volumes:
-#      - .:/app
-#    command: npm start
-#
-#volumes:
-#  mongo_data:
