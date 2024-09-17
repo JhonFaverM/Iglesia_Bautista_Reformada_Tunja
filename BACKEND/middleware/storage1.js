@@ -1,7 +1,9 @@
 const multer = require('multer');
 const multerS3 = require('multer-s3');
-const { S3Client } = require('@aws-sdk/client-s3');  // AWS SDK v3 S3Client
+const { S3Client } = require('@aws-sdk/client-s3');  // AWS SDK v3 S3Client / establece conexion aws
 const { Upload } = require('@aws-sdk/lib-storage');  // Para manejar la subida de archivos
+
+console.log(process.env.AWS_ACCESS_KEY_ID, process.env.AWS_SECRET_ACCESS_KEY, process.env.AWS_REGION, process.env.AWS_BUCKET_NAME);
 
 // Configuracion de AWS S3
 const s3 = new S3Client({

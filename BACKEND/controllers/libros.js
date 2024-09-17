@@ -4,6 +4,7 @@ const mongoosePaginate = require('mongoose-paginate-v2');
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 const { DeleteObjectCommand } = require('@aws-sdk/client-s3');
 
+
 // Configurar el SDK de AWS
 const s3 = new S3Client({
     region: process.env.AWS_REGION,
