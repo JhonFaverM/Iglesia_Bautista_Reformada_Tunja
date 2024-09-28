@@ -28,7 +28,6 @@ const storageS3 = multer({
     storage: multerS3({
         s3: s3,
         bucket: process.env.AWS_BUCKET_NAME, // Nombre de variable bucket en S3
-        acl: 'public-read',  // Otorga permisos de lectura pública a los archivos
         key: (req, file, cb) => {
             cb(null, Date.now().toString() + '-' + file.originalname); // Asigna un nombre único al archivo
         }
